@@ -1,0 +1,11 @@
+.slide {
+    width: 55vw;
+    position: relative;
+    margin: 5vh auto;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+p {
+    font-weight: 400;
+}
