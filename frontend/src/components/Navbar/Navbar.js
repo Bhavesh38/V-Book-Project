@@ -199,8 +199,8 @@ const Navbar = ({ match, history }) => {
                 >
                   AllCourses
                 </Button>
-
               </Link>
+
               <Link to="/Allbooks">
                 <Button
                   className="Navbarbtns"
@@ -213,14 +213,8 @@ const Navbar = ({ match, history }) => {
                   className="Navbarbtns"
                   id="Teacherbtn"
                 >Go to Classroom</Button>
-
               </Link>
-
-
             </ol>
-
-
-
             {isLogged ? (
               userLink()
             ) : (
