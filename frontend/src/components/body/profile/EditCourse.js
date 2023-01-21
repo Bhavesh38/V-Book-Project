@@ -250,7 +250,7 @@ const EditCourse = ({ history }) => {
 
                   <h2>Edit Course</h2>
                   <div className={loadingImage ? "disable-avatar" : "avatar"}>
-                    <img src={image ? image : editCourse.image} />
+                    <img src={image ? image : editCourse.image} alt="img.png" />
                     <span>
                       <i className="fas fa-camera"></i>
                       <p>Change</p>

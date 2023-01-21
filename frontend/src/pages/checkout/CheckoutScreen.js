@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 
 import { Select, Radio, Input, Space, Image, Button } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { FaLock, AiFillQuestionCircle } from "react-icons/all";
+// import { FaLock, AiFillQuestionCircle } from "react-icons/all";
 import { isEmpty } from "../../components/utils/validation/Validation";
 import {
   saveCountryCustomer,
@@ -420,7 +420,7 @@ const CheckoutScreen = ({ history }) => {
             value={cardNumber}
             required
             placeholder="Card Number"
-            suffix={<FaLock style={{ color: "rgba(0,0,0,.5)" }} />}
+            suffix={<span>FaLock</span>}
           />
 
           <div className="moisSecurity">
@@ -439,11 +439,14 @@ const CheckoutScreen = ({ history }) => {
               required
               placeholder="Security Code"
               suffix={
-                <AiFillQuestionCircle
+                <span className="questionIcon"
+                  size="20"
+                  style={{ color: "rgba(0,0,0,.5)" }}>AiFillQuestionCircle</span>
+                /* <AiFillQuestionCircle
                   className="questionIcon"
                   size="20"
                   style={{ color: "rgba(0,0,0,.5)" }}
-                />
+                /> */
               }
             />
             <Image

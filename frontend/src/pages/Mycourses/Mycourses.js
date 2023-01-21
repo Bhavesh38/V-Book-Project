@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Table, Button, Skeleton } from "antd";
 import { Link } from "react-router-dom";
 import { listMyCourses } from "../../redux/actions/courseActions";
-import { AiOutlineEdit, TiDeleteOutline } from "react-icons/all";
+// import { AiOutlineEdit, TiDeleteOutline } from "react-icons/all";
 import { useDispatch, useSelector } from "react-redux";
 import Error from "../../components/utils/Error";
 const Mycourses = ({ history }) => {
@@ -58,7 +58,7 @@ const Mycourses = ({ history }) => {
                     className="btn-edit"
                     type="primary"
                     shape="round"
-                    icon={<AiOutlineEdit />}
+                    // icon={<AiOutlineEdit />}
                     size="small"
                   >
                     EDIT
@@ -68,7 +68,7 @@ const Mycourses = ({ history }) => {
                   className="btn-delete"
                   type="danger"
                   shape="round"
-                  icon={<TiDeleteOutline />}
+                  // icon={<TiDeleteOutline />}
                   size="small"
                 >
                   DELETE

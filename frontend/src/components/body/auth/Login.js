@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Image, Form, Button } from "antd";
-import { Link, NavLink, useHistory } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Helmet } from "react-helmet";
-import { FiUser, AiFillLock } from "react-icons/all";
+// import { FiUser, AiFillLock } from "react-icons/all";
 import {
   showErrMsg,
   showSuccessMsg,
@@ -11,7 +11,7 @@ import {
 import "./auth.css";
 import { dispatchLogin } from "../../../redux/actions/authAction";
 import { useDispatch } from "react-redux";
-import { BiRightArrowAlt } from "react-icons/all";
+// import { BiRightArrowAlt } from "react-icons/all";
 import { isEmpty, isEmail } from "../../utils/validation/Validation";
 const initialState = {
   email: "",
@@ -23,7 +23,7 @@ const initialState = {
 const Login = () => {
   const [formDataUser, setFormDataUser] = useState(initialState);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const history = useNavigate();
   const { email, password, err, success } = formDataUser;
   const handleChange = (e) => {
     //place of do that onChange={(e) => setEmail(e.target.value) for each field (input) we do that
@@ -55,7 +55,7 @@ const Login = () => {
       dispatch(dispatchLogin());
       localStorage.setItem("firstLogin", true);
 
-      history.push("/");
+      history("/");
     } catch (err) {
       err.response.data.msg &&
         setFormDataUser({
@@ -75,7 +75,7 @@ const Login = () => {
 
   function remcl() {
     let parent = this.parentNode.parentNode;
-    if (this.value == "") {
+    if (this.value === "") {
       parent.classList.remove("focus");
     }
   }
@@ -91,7 +91,7 @@ const Login = () => {
         <title>login</title>
       </Helmet>
       <div className="container_login">
-        <img className="wave" src="https://i.imgur.com/FKKMfGt.png" />
+        <img className="wave" src="https://i.imgur.com/FKKMfGt.png" alt="img.png" />
         <div className="container">
           <div className="img">
             <Image src="https://i.imgur.com/gUMFS8G.png" preview={false} />
@@ -104,7 +104,8 @@ const Login = () => {
               {success && showSuccessMsg(success)}
               <div className="input-div one">
                 <div className="i">
-                  <FiUser color="#0f6ab9" />
+                  {/* <FiUser color="#0f6ab9" /> */}
+                  FiUser
                 </div>
                 <div className="div">
                   <input
@@ -121,7 +122,8 @@ const Login = () => {
 
               <div className="input-div pass">
                 <div className="i">
-                  <AiFillLock color="#0f6ab9" />
+                  {/* <AiFillLock color="#0f6ab9" /> */}
+                  AiFillLock
                 </div>
                 <div className="div">
                   <input
@@ -145,7 +147,8 @@ const Login = () => {
                 New Visiter?{" "}
                 <Link className="register" to="/register">
                   Register
-                  <BiRightArrowAlt />
+                  {/* <BiRightArrowAlt /> */}
+                  BiRightArrowAlt
                 </Link>
               </p>
             </form>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Image, Input } from "antd";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { FiUser, AiFillLock, MdEmail } from "react-icons/all";
+// import { FiUser, AiFillLock, MdEmail } from "react-icons/all";
 
 import axios from "axios";
 import {
@@ -135,7 +135,7 @@ const Register = () => {
   useEffect(() => {
     console.log(isTeacher);
 
-    return () => {};
+    return () => { };
   }, [isTeacher]);
 
   return (
@@ -162,7 +162,9 @@ const Register = () => {
               {success && showSuccessMsg(success)}
               <div className="input-div one">
                 <div className="i">
-                  <FiUser color="#0f6ab9" />
+                  {/* <FiUser color="#0f6ab9" />
+                   */}
+                  FiUser
                 </div>
                 <div className="div">
                   <input
@@ -177,7 +179,8 @@ const Register = () => {
               </div>
               <div className="input-div one">
                 <div className="i">
-                  <MdEmail color="#0f6ab9" />
+                  {/* <MdEmail color="#0f6ab9" /> */}
+                  MdEmail
                 </div>
                 <div className="div">
                   <input
@@ -192,7 +195,8 @@ const Register = () => {
               </div>
               <div className="input-div pass">
                 <div className="i">
-                  <AiFillLock color="#0f6ab9" />
+                  {/* <AiFillLock color="#0f6ab9" /> */}
+                  AiFillLock
                 </div>
                 <div className="div">
                   <input
@@ -207,7 +211,8 @@ const Register = () => {
               </div>
               <div className="input-div pass">
                 <div className="i">
-                  <AiFillLock color="#0f6ab9" />
+                  {/* <AiFillLock color="#0f6ab9" /> */}
+                  AiFillLock
                 </div>
                 <div className="div">
                   <input

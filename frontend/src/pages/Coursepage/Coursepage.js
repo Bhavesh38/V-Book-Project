@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Rating from "./Rating";
 import { Link } from "react-router-dom";
-import { BsCheck } from "react-icons/all";
+// import { BsCheck } from "react-icons/all";
 import Collapsible from "./Collapsible";
 import { YoutubePlayer } from "reactjs-media";
 import Comments from "./Comments";
@@ -78,7 +78,7 @@ const Coursepage = ({ match, history }) => {
       setcomment("");
       dispatch({ type: CREATE_REVIEW_RESET });
     }
-    return () => {};
+    return () => { };
   }, [dispatch, match.params.id, isLogged, success]);
   window.addEventListener("scroll", Disable);
   const addToCartHandler = () => {
@@ -166,7 +166,8 @@ const Coursepage = ({ match, history }) => {
                         <ul>
                           {course.goals.map((goal, index) => (
                             <li key={index}>
-                              <BsCheck className="checkIcon" />
+                              {/* <BsCheck className="checkIcon" /> */}
+                              <span className="checkIcon">BsCheck</span>
                               {goal}
                             </li>
                           ))}
@@ -215,9 +216,8 @@ const Coursepage = ({ match, history }) => {
                 </div>
                 <div className="afafa">
                   <div
-                    className={`toAddCart ${
-                      disable ? "disable" : add ? "active" : "disable"
-                    }`}
+                    className={`toAddCart ${disable ? "disable" : add ? "active" : "disable"
+                      }`}
                   >
                     {/* <div className="informationsToBuyCourse"> */}
                     <img
@@ -248,9 +248,8 @@ const Coursepage = ({ match, history }) => {
                           </button>
                         )}
                         <button
-                          className={`btnShopNow ${
-                            isStudent && "shopnow_disable"
-                          }`}
+                          className={`btnShopNow ${isStudent && "shopnow_disable"
+                            }`}
                         >
                           {!isStudent ? "Shop Now" : "Already Purchased"}
                         </button>

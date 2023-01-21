@@ -131,7 +131,8 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="home">
+      {/* <h1 style={{ color: "black" }}>hii</h1> */}
       <Helmet>
         <title>VCLASSROOM</title>
       </Helmet>
@@ -166,8 +167,8 @@ const Home = () => {
 
               <div id="paragraphbtn">
                 <p>
-                  physics you will find the  courses as well as readymade Vbooks VNOTES  
-                   pdfs direct mentorship from experienced instructors
+                  physics you will find the  courses as well as readymade Vbooks VNOTES
+                  pdfs direct mentorship from experienced instructors
                 </p>
                 <Link
                   style={{ textDecoration: "none !important" }}

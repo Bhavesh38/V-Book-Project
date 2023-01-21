@@ -1,9 +1,10 @@
-import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import { Routes, Route } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Home from "./pages/Home/Home";
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
+import 'antd/dist/reset.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Navbar from "./components/Navbar/Navbar";
@@ -36,6 +37,9 @@ import EditUser from "./components/body/profile/EditUser";
 import EditCourse from "./components/body/profile/EditCourse";
 import CourseSeacrh from "./pages/CourseSearch/CourseSeacrh";
 // import Vbook from "./components/Vbook/Vbook";
+
+
+import "./App.css";
 function App() {
   //Get Acces token
   const dispatch = useDispatch();
@@ -68,82 +72,79 @@ function App() {
       getUser();
     }
   }, [token, dispatch]);
+  console.log("bhavesh")
   return (
-    <>
-      <div className="main">
-        <Router>
-          <>
-            <Navbar />
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/courses/:id" component={Coursepage} />
 
-              <Route path="/coursesfilter/:topic" component={CourseFilter} />
-              <Route path="/AllCourses" component={AllCourses} />
-              <Route path="/ContactUs" component={ContactUs} />
+    <div className="main">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/courses/:id" element={<Coursepage />} />
 
-              <Route path="/AllBooks" component={AllBooks} />
-              <Route path="/Instructorvideo" component={AllCourses} />
+        <Route path="/coursesfilter/:topic" element={<CourseFilter />} />
+        <Route path="/AllCourses" element={<AllCourses />} />
+        <Route path="/ContactUs" element={<ContactUs />} />
 
-              <Route
-                path="/Mycourses"
-                component={isLogged ? Mycourses : NotFound}
-              />
-              <Route
-                path="/checkout"
-                component={isLogged ? CheckoutScreen : Login}
-              />
+        <Route path="/AllBooks" element={<AllBooks />} />
+        <Route path="/Instructorvideo" element={<AllCourses />} />
 
-              <Route
-                exact
-                path="/login"
-                component={isLogged ? NotFound : Login}
-              />
-              <Route
-                exact
-                path="/register"
-                component={isLogged ? NotFound : Register}
-              />
-              <Route
-                exact
-                path="/user/activate/:activation_token"
-                component={ActivationEmail}
-              />
-              <Route
-                exact
-                path="/forgot_password"
-                component={isLogged ? NotFound : ForgotPass}
-              />
-              <Route
-                path="/user/reset/:token"
-                component={isLogged ? NotFound : ResetPass}
-                exact
-              />
-              <Route
-                path="/profile"
-                component={isLogged ? Profile : NotFound}
-                exact
-              />
-              <Route
-                path="/edit_user/:id"
-                component={isAdmin ? EditUser : NotFound}
-                exact
-              />
-              <Route
-                path="/editcourse/:id"
-                component={user.Teacher || isAdmin ? EditCourse : NotFound}
-                exact
-              />
-              <Route path="/search/:keyword" component={CourseSeacrh} />
-              <Route path="/subcategory/:subcategory" component={Subcategory} />
+        <Route
+          path="/Mycourses"
+          element={isLogged ? <Mycourses /> : <NotFound />}
+        />
+        <Route
+          path="/checkout"
+          element={isLogged ? <CheckoutScreen /> : <Login />}
+        />
 
-              <Route component={NotFound} />
-            </Switch>
-          </>
-        </Router>
-        <Footer />
-      </div>
-    </>
+        <Route
+          path="/login"
+          element={isLogged ? <NotFound /> : <NotFound />}
+        />
+        <Route
+
+          path="/register"
+          element={isLogged ? <NotFound /> : <Register />}
+        />
+        <Route
+
+          path="/user/activate/:activation_token"
+          element={<ActivationEmail />}
+        />
+        <Route
+
+          path="/forgot_password"
+          element={isLogged ? <NotFound /> : <ForgotPass />}
+        />
+        <Route
+          path="/user/reset/:token"
+          element={isLogged ? <NotFound /> : <ResetPass />}
+
+        />
+        <Route
+          path="/profile"
+          element={isLogged ? <Profile /> : <NotFound />}
+
+        />
+        <Route
+          path="/edit_user/:id"
+          element={isAdmin ? <EditUser /> : <NotFound />}
+
+        />
+        <Route
+          path="/editcourse/:id"
+          element={user.Teacher || isAdmin ? <EditCourse /> : <NotFound />}
+
+        />
+        <Route path="/search/:keyword" element={<CourseSeacrh />} />
+        <Route path="/subcategory/:subcategory" element={<Subcategory />} />
+
+        <Route element={<NotFound />} />
+      </Routes>
+
+      <Footer />
+    </div>
+
   );
 }
 

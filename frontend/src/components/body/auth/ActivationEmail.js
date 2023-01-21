@@ -27,7 +27,7 @@ const ActivationEmail = () => {
       };
       activationEmail();
     }
-  }, [activation_token]);
+  }, [activation_token, err?.response?.data?.msg]);
   return (
     <>
       <Helmet>

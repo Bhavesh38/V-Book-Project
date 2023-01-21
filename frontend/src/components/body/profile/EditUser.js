@@ -1,4 +1,4 @@
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { React, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -15,7 +15,7 @@ const EditUser = () => {
   const [size, setSize] = useState("middle");
 
   const { id } = useParams();
-  const history = useHistory();
+  const history = useNavigate();
   const [editUser, setEditUser] = useState([]);
   const [num, setNum] = useState(0);
 
@@ -64,7 +64,7 @@ const EditUser = () => {
         }
       });
     } else {
-      history.push("/profile");
+      history("/profile");
     }
   }, [users, id, history]);
 

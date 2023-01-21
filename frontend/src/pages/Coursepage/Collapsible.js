@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import { RiArrowUpSLine, RiArrowDownSLine } from "react-icons/all";
+import React, { useState, useReilterListf, useRef } from "react";
+// import { RiArrowUpSLine, RiArrowDownSLine } from "react-icons/all";
 const Collapsible = ({ section, isaccessable }) => {
   const [isOpen, setIsOpen] = useState(false);
   const parentRef = useRef();
@@ -14,9 +14,11 @@ const Collapsible = ({ section, isaccessable }) => {
       <div className="contentC" onClick={() => setIsOpen(!isOpen)}>
         <div className="iconCourseC">
           {!isOpen ? (
-            <RiArrowDownSLine size="20" className="iconArrowDown" />
+            <span className="iconArrowDown">RiArrowDownSLine</span>
+            /* <RiArrowDownSLine size="20" className="iconArrowDown" /> */
           ) : (
-            <RiArrowUpSLine size="20" className="iconArrowDown" />
+            <span className="iconArrowDown">RiArrowUpSLine</span>
+            /* <RiArrowUpSLine size="20"  /> */
           )}{" "}
           <b>{section.name}</b>
         </div>
@@ -31,8 +33,8 @@ const Collapsible = ({ section, isaccessable }) => {
         style={
           isOpen
             ? {
-                height: parentRef.current.scrollHeight + "px",
-              }
+              height: parentRef.current.scrollHeight + "px",
+            }
             : { height: "0px" }
         }
       >

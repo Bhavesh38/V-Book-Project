@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import Rating from "./Rating";
 
-import { BiLike, BiDislike } from "react-icons/all";
+// import { BiLike, BiDislike } from "react-icons/all";
 const Comments = ({ commentPerson, commentMessage, rating, date }) => {
   const [backgroundColor, setBackgroundColor] = useState("white");
   const [backgroundDisColor, setBackgroundDisColor] = useState("white");
@@ -20,11 +20,14 @@ const Comments = ({ commentPerson, commentMessage, rating, date }) => {
           <p>{commentMessage}</p>
         </div>
         <div className="likeOrDislike">
-          <BiLike style={{ background: backgroundColor }} className="bilike" />
-          <BiDislike
+          <span style={{ background: backgroundColor }} className="bilike" >BiLike</span>
+          {/* <BiLike /> */}
+          <span style={{ background: backgroundDisColor }}
+            className="bidislike">BiDislike</span>
+          {/* <BiDislike
             style={{ background: backgroundDisColor }}
             className="bidislike"
-          />
+          /> */}
         </div>
       </div>
       <br></br>

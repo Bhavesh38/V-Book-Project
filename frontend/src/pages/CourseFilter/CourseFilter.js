@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BsFillPeopleFill, MdFilterList } from "react-icons/all";
+// import { BsFillPeopleFill, MdFilterList } from "react-icons/all";
 import { Tabs, Pagination } from "antd";
 import { Helmet } from "react-helmet";
 
@@ -132,7 +132,7 @@ const CourseFilter = ({ history }) => {
     dispatch({ type: GET_CRSPRICE_RESET });
     dispatch(Listcoursesbypobularity(topic));
     dispatch(ListcoursesbyTopic(topic, true, page));
-    return () => {};
+    return () => { };
   }, [dispatch, topic, page, history]);
   if (!loading && totalcourses === 0) {
     history.push("/notfound");
@@ -150,8 +150,10 @@ const CourseFilter = ({ history }) => {
           <Link to="/">IT & Software</Link>
         </h3>
         <p>
-          <BsFillPeopleFill className="iconPeople" color="#848482" size="18" />{" "}
-          9 000 002 learners
+          <span className="iconPeople">BsFillPeopleFill</span>
+          {/* BsFillPeopleFill
+          <BsFillPeopleFill  color="#848482" size="18" />{" "}
+          9 000 002 learners*/}
         </p>
       </div>
       <div className="coursePourCommencer">
@@ -238,8 +240,9 @@ const CourseFilter = ({ history }) => {
               className="filterButton"
               onClick={() => setIsFilter(!isFilter)}
             >
-              <MdFilterList size="22" className="filterIcon" />
-              Filter
+              <span className="filterIcon">MdFilterList</span>
+              {/* <MdFilterList size="22"  />
+              Filter */}
             </button>
             <button className="clearFiltersBtn" onClick={() => handleClear()}>
               Most Popular

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./Navbar.css";
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 import { Input, Popover, Drawer, Badge, Button, Dropdown } from "antd";
-import {
+// import {
 
-  AiOutlineSearch,
-  AiOutlineClose,
-  RiArrowDropDownLine,
-} from "react-icons/all";
+//   AiOutlineSearch,
+//   AiOutlineClose,
+//   RiArrowDropDownLine,
+// } from "react-icons/all";
 import { Link } from "react-router-dom";
 import useWindowDimensions from "../../useWindowDimensions";
 import axios from "axios";
@@ -68,8 +68,8 @@ const Navbar = ({ match, history }) => {
             ) : (
               <>
                 {" "}
-                <img src={user.avatar} className="profile_pic" />
-                {user.name} <RiArrowDropDownLine size="24" />
+                <img src={user.avatar} className="profile_pic" alt="img.png" />
+                {user.name} RiArrowDropDownLine
               </>
             )}
           </div>
@@ -83,7 +83,7 @@ const Navbar = ({ match, history }) => {
         <div className="dropdownic" style={{ margin: "20px 0px" }}>
           <img src={user.avatar} className="profile_pic" alt="profilpic" />{" "}
           {user.name}
-          <RiArrowDropDownLine size="24" />
+          {/* <RiArrowDropDownLine size="24" /> */}
         </div>
       </Dropdown>
     );
@@ -107,7 +107,7 @@ const Navbar = ({ match, history }) => {
       <br />
       <Link to="/coursesfilter/Biology">Biology</Link>
       <br />
-     
+
     </div>
   );
   useEffect(() => {
@@ -117,7 +117,7 @@ const Navbar = ({ match, history }) => {
       setvisbile(false);
       setshowicons(false);
     }
-    return () => {};
+    return () => { };
   }, [width]);
   const Activateburger = () => {
     showDrawer();
@@ -142,19 +142,13 @@ const Navbar = ({ match, history }) => {
         {showicons && (
           <div className="Phoneonright">
             {showsearch ? (
-              <AiOutlineClose
-                size="24"
-                color="#1890ff"
-                onClick={() => setshowsearch(!showsearch)}
-              />
+              <span onClick={() => setshowsearch(!showsearch)}>AiOutlineClose</span>
+
             ) : (
-              <AiOutlineSearch
-                size="24"
-                color="#1890ff"
-                onClick={() => setshowsearch(!showsearch)}
-              />
+              <span onClick={() => setshowsearch(!showsearch)}>AiOutlineSearch</span>
+
             )}
-           
+
             <div className={showsearch ? "searchactive" : "searchphone"}>
               <Search
                 placeholder="Search"
@@ -180,52 +174,52 @@ const Navbar = ({ match, history }) => {
           />
         </div>
         {!showicons && (
-          <div classname="onright"> 
+          <div classname="onright">
             <ol>
               <Link to="/register">
-              <Button
-                disabled={isLogged}
-                className="Navbarbtns"
-                id="Teacherbtn"
-              >
-                Instructor Portal
-              </Button>
-            </Link>
-            <Popover content={content} style={{ cursor: "pointer" }}>
-              <button className="Navbarbtns" id="Categoriesbtn">
-                Categories
-              </button>
-            </Popover>
-            
-            
-           <Link to="/AllCourses">
-              <Button
-                 className="Navbarbtns"
-                 id="Teacherbtn"
+                <Button
+                  disabled={isLogged}
+                  className="Navbarbtns"
+                  id="Teacherbtn"
+                >
+                  Instructor Portal
+                </Button>
+              </Link>
+              <Popover content={content} style={{ cursor: "pointer" }}>
+                <button className="Navbarbtns" id="Categoriesbtn">
+                  Categories
+                </button>
+              </Popover>
+
+
+              <Link to="/AllCourses">
+                <Button
+                  className="Navbarbtns"
+                  id="Teacherbtn"
                 >
                   AllCourses
-                  </Button>
-            
-            </Link>
-          <Link to="/Allbooks">
-           <Button
-                 className="Navbarbtns"
-                 id="Teacherbtn"
+                </Button>
+
+              </Link>
+              <Link to="/Allbooks">
+                <Button
+                  className="Navbarbtns"
+                  id="Teacherbtn"
                 >All Vbooks</Button>
-                
-            </Link>
-            <Link to="/classroom">
-           <Button
-                 className="Navbarbtns"
-                 id="Teacherbtn"
+
+              </Link>
+              <Link to="/classroom">
+                <Button
+                  className="Navbarbtns"
+                  id="Teacherbtn"
                 >Go to Classroom</Button>
-                
-            </Link>
-            
-            
+
+              </Link>
+
+
             </ol>
-            
-           
+
+
 
             {isLogged ? (
               userLink()
@@ -281,4 +275,4 @@ const Navbar = ({ match, history }) => {
   );
 };
 
-export default withRouter(Navbar);
+export default Navbar;
