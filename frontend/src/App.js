@@ -99,7 +99,8 @@ function App() {
 
         <Route
           path="/login"
-          element={isLogged ? <NotFound /> : <NotFound />}
+          // element={isLogged ? <NotFound /> : <NotFound />}
+          element={!isLogged ? <Login /> : <NotFound />}
         />
         <Route
 

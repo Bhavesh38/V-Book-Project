@@ -1,0 +1,93 @@
+.login {
+  width: 50%;
+  background-color: rgb(19, 135, 213);
+  margin: 5% auto;
+  color: white;
+  box-shadow: 0 0 10px gray;
+  border-radius: 5px;
+  padding: 2%;
+  text-align: center;
+}
+.login > h1 {
+  margin-bottom: 3%;
+  font-weight: 600;
+  color: rgb(227, 227, 227);
+}
+.login_form {
+  background-color: white;
+  padding: 2%;
+  border-radius: 5px;
+}
+.login_form > input {
+  width: 100%;
+  display: block;
+  outline: none;
+  border: none;
+  margin-top: 16px;
+  border-bottom: 1px solid rgb(173, 173, 173);
+  padding: 4px;
+  color: rgb(60, 59, 59);
+}
+.remebermeAndForgetPassword {
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  align-items: center;
+  margin-top: 2%;
+}
+.rememberMe {
+  font-weight: 600;
+  align-items: center;
+}
+.forgetPassword {
+  color: rgb(19, 135, 213);
+  cursor: pointer;
+}
+.forgetPassword:hover {
+  color: rgb(10, 92, 233);
+}
+.loginButton {
+  color: rgb(10, 92, 233);
+  width: 100%;
+  border-radius: 20px;
+  padding: 6px;
+  margin-top: 2%;
+  font-weight: 600;
+  border: 1px solid rgb(10, 92, 233);
+  background-color: white;
+}
+.loginButton:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(10, 92, 233);
+}
+.login_form_divider {
+  display: flex;
+  color: gray;
+  justify-content: space-between;
+  margin-top: 2%;
+}
+.login_form_divider > hr {
+  color: rgb(219, 219, 219);
+}
+.login_form_googleSignInButton {
+  color: rgb(97, 96, 96);
+  box-shadow: 0 0 5px rgb(230, 228, 228);
+  padding: 6px;
+  margin-top: 2%;
+  border-radius: 19px;
+  cursor: pointer;
+  width: 99.5%;
+}
+.login_form_googleSignInButton:hover {
+  box-shadow: 0 0 5px rgb(199, 198, 198);
+  width: 100%;
+}
+.login_form_googleSignInButton > span {
+  margin-left: 12px;
+  font-weight: 600;
+}
+.login_form_bottm {
+  color: gray;
+  margin-top: 3%;
+}

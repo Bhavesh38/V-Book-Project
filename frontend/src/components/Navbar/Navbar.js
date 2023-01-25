@@ -134,7 +134,7 @@ const Navbar = ({ match, history }) => {
           <Link to="/">
             <img
               src="./assets/logo.jpeg"
-              alt="Logo"
+              alt="Logo.png"
               className="logo_header"
             />
           </Link>
