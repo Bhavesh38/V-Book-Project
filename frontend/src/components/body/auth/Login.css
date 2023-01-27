@@ -18,6 +18,31 @@
   padding: 2%;
   border-radius: 5px;
 }
+.login_form_heading {
+  color: rgb(60, 59, 59);
+  text-align: left;
+  font-weight: 600;
+  padding: 6px;
+  padding-left: 0;
+  background-color: white;
+}
+.login_form_heading > span {
+  /* margin-right: 12px; */
+  /* border-radius: 4px; */
+  border-bottom: none;
+  /* padding: 6px 12px 6px 2px; */
+  cursor: pointer;
+  padding: 6px;
+}
+.login_form_heading_student_active,
+.login_form_heading_teacher_active {
+  box-shadow: 0 0 5px gray;
+  border: 1px solid gray;
+  color: rgb(41, 182, 214);
+}
+.login_form_heading > span:hover {
+  color: rgb(19, 165, 198);
+}
 .login_form > input {
   width: 100%;
   display: block;
@@ -27,6 +52,12 @@
   border-bottom: 1px solid rgb(173, 173, 173);
   padding: 4px;
   color: rgb(60, 59, 59);
+}
+.login_form > label {
+  color: rgb(60, 59, 59);
+  text-align: left;
+  margin-top: 12px;
+  font-weight: 600;
 }
 .remebermeAndForgetPassword {
   display: flex;
@@ -46,7 +77,7 @@
 .forgetPassword:hover {
   color: rgb(10, 92, 233);
 }
-.loginButton {
+.registerButton {
   color: rgb(10, 92, 233);
   width: 100%;
   border-radius: 20px;

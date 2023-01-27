@@ -1,13 +1,36 @@
-
-import React from 'react';
-
+import React, { useState, useEffect } from 'react'
+import StudentRegister from './StudentRegister';
+import TeacherRegister from './TeacherRegister';
 
 import "./Register.css";
 const Register = () => {
+
+  const [studentRegisterFormActiveness, setStudentRegisterFormActiveness] = useState(true);
+  const [teacherRegisterFormActiveness, setTeacherRegisterFormActiveness] = useState(false);
+  useEffect(() => {
+    setStudentRegisterFormActiveness(true);
+    setTeacherRegisterFormActiveness(false);
+  }, []);
+
+  
   return (
     <div className='register'>
-      register
-    </div>
+      <h1>EduSpace</h1>
+      <h3>Register</h3>
+      <p>See Your growth and success!</p>
+      <div className='register_form_heading'>
+        <span onClick={() => {
+          setStudentRegisterFormActiveness(true)
+          setTeacherRegisterFormActiveness(false)
+        }} className={studentRegisterFormActiveness && 'register_form_heading_student_active'}>For Students</span>
+        <span onClick={() => {
+          setStudentRegisterFormActiveness(false)
+          setTeacherRegisterFormActiveness(true)
+        }} className={teacherRegisterFormActiveness && 'register_form_heading_teacher_active'}>For Teachers</span>
+      </div>
+      {studentRegisterFormActiveness && <StudentRegister />}
+      {teacherRegisterFormActiveness && <TeacherRegister />}
+    </div >
   )
 }
 

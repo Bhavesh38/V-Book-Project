@@ -1,52 +1,37 @@
-import React, { useState } from 'react'
-import GoogleIcon from '@mui/icons-material/Google';
-import { Link } from "react-router-dom"
+import React, { useState, useEffect } from 'react'
+import StudentLogin from './StudentLogin';
+import TeahcerLogin from './TeahcerLogin';
+
 
 
 import "./Login.css";
 const Login = () => {
-  const [loginFormData, setLoginFormData] = useState({
-    email: "",
-    password: ""
-  });
 
+  const [studentLoginFormActiveness, setStudentLoginFormActiveness] = useState(true);
+  const [teacherLoginFormActiveness, setTeacherLoginFormActiveness] = useState(false);
+  useEffect(() => {
+    setStudentLoginFormActiveness(true);
+    setTeacherLoginFormActiveness(false);
+  }, []);
 
-
-  const handleLoginFormData = (e) => {
-    setLoginFormData({
-      ...loginFormData,
-      [e.target.name]: e.target.value
-    })
-  }
   return (
     <div className='login'>
       <h1>EduSpace</h1>
       <h3>Login</h3>
       <p>See Your growth and success!</p>
-
-      <form className='login_form'>
-        <input placeholder='Email' type="text" required name="email" value={loginFormData.email} onChange={handleLoginFormData} />
-        <input placeholder='Password' type="password" required name="password" value={loginFormData.password} onChange={handleLoginFormData} />
-        <div className='remebermeAndForgetPassword'>
-          <span className='rememberMe'>Remember me <input type="checkbox" /></span>
-          <span className='forgetPassword'>Forget Password?</span>
-        </div>
-        <button className='loginButton'>Log In</button>
-        <div className='login_form_divider'>
-          <hr />
-          <span>or</span>
-          <hr />
-        </div>
-        <div className='login_form_googleSignInButton'>
-          <GoogleIcon style={{ color: "red" }} />
-          <span>Sign In with Google</span>
-        </div>
-
-        <div className='login_form_bottm'>
-          <span>Not registered? <Link to="/register">Register here</Link></span>
-        </div>
-      </form>
-    </div>
+      <div className='login_form_heading'>
+        <span onClick={() => {
+          setStudentLoginFormActiveness(true)
+          setTeacherLoginFormActiveness(false)
+        }} className={studentLoginFormActiveness && 'login_form_heading_student_active'}>For Students</span>
+        <span onClick={() => {
+          setStudentLoginFormActiveness(false)
+          setTeacherLoginFormActiveness(true)
+        }} className={teacherLoginFormActiveness && 'login_form_heading_teacher_active'}>For Teachers</span>
+      </div>
+      {studentLoginFormActiveness && <StudentLogin />}
+      {teacherLoginFormActiveness && <TeahcerLogin />}
+    </div >
   )
 }
 
