@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-
+import { useDispatch } from "react-redux"
 import GoogleIcon from '@mui/icons-material/Google';
 import { Link } from "react-router-dom";
 
 import "./Register.css";
+import { studentRegister } from '../../../redux/actions/authAction';
 const StudentRegister = () => {
-
+    const dispatch = useDispatch();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         password: "",
+        cPassword: "",
         dob: "",
+        isTeacher: false
     });
 
     const handleFormData = (e) => {
@@ -18,11 +21,17 @@ const StudentRegister = () => {
             ...formData,
             [e.target.name]: e.target.value
         });
-        console.log(formData);
+
+    }
+    const handleRegisterForm_submit = (e) => {
+        e.preventDefault();
+        // console.log(formData);
+        dispatch(studentRegister(formData));
+
     }
     return (
         <div className='studentRegister'>
-            <form className='register_form'>
+            <form className='register_form' onSubmit={handleRegisterForm_submit}>
                 <input placeholder='Name' type="text" required name="name" value={formData.name} onChange={handleFormData} />
                 <input placeholder='Email' type="text" required name="email" value={formData.email} onChange={handleFormData} />
                 <label for="dob">Date of birth</label>
@@ -30,6 +39,7 @@ const StudentRegister = () => {
                     style={{ marginTop: "0" }}
                 />
                 <input placeholder='Password' type="password" required name="password" value={formData.password} onChange={handleFormData} />
+                <input placeholder='Confirm Password' type="password" required name="cPassword" value={formData.cPassword} onChange={handleFormData} />
                 <div className='remebermeAndForgetPassword'>
                     <span className='rememberMe'>Remember me <input type="checkbox" /></span>
                     <span className='forgetPassword'>Forget Password?</span>

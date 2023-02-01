@@ -14,6 +14,7 @@ const TeacherRegister = () => {
         phone: "",
         highestDegree: "",
         address: "",
+        isTeacher: true
 
     });
 

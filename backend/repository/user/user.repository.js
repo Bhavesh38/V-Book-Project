@@ -8,7 +8,7 @@ const deleteUserById = async (id) => {
   return await Users.findByIdAndDelete(id);
 };
 const getUserByEmail = async (user) => {
-  return await Users.findOne({ email });
+  return await Users.findOne({ user });
 };
 
 module.exports = {

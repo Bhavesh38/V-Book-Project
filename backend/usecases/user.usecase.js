@@ -21,33 +21,32 @@ const userCtrl = {
 
     try {
       // http://localhost:5000/user/register
-      const { name, email, password, isTeacher, description, headline } =
+      const { name, email, password, isTeacher } =
         req.body;
-      console.log(isTeacher);
+      console.log(req.body);
       if (!name || !email || !password)
         return res.status(400).json({ msg: "Please fill in all fields." });
 
-      if (!validateEmail(email))
-        return res.status(400).json({ msg: "Invalid email" });
-
+      // if (!validateEmail(email))
+      //   return res.status(400).json({ msg: "Invalid email" });
+      console.log("hii1");
       const user = await userRepository.getUserByEmail(email);
+      console.log("hii2");
       if (user)
         return res.status(400).json({ msg: "This email already exists." });
-
+      console.log("hii3");
       if (password.length < 6)
         return res
           .status(400)
           .json({ msg: "Password must be at least 6 characters." });
-
+      console.log("hii5");
       const passwordHash = await bcrypt.hash(password, 12);
       if (isTeacher) {
         newUser = {
           name,
           email,
           password: passwordHash,
-          Teacher: isTeacher,
-          description,
-          headline,
+          Teacher: isTeacher
         };
       } else {
         newUser = {
@@ -56,15 +55,18 @@ const userCtrl = {
           password: passwordHash,
         };
       }
-      const activation_token = createActivationToken(newUser);
+      console.log("hii6");
+      // const activation_token = createActivationToken(newUser);
 
-      const url = `${CLIENT_URL}user/activate/${activation_token}`;
-      sendMail(email, url, name, "Verify your email address");
+      // const url = `${CLIENT_URL}user/activate/${activation_token}`;
+      // sendMail(email, url, name, "Verify your email address");
 
-      res.json({
+      res.status(201).json({
         msg: "Register Success! Please activate your email to start.",
       });
+      console.log("hii7");
     } catch (err) {
+      console.log("hii8");
       return res.status(500).json({ msg: err.message });
     }
   },
@@ -89,7 +91,7 @@ const userCtrl = {
              iat: 1620786747,
              exp: 1620787347
             }*/
-      const { name, email, password, Teacher, description, headline } = user;
+      const { name, email, password, Teacher } = user;
       //check if the user already registred
       const check = await userRepository.getUserByEmail(email);
       if (check)
@@ -101,8 +103,7 @@ const userCtrl = {
           email,
           password,
           Teacher,
-          description,
-          headline,
+
         });
         await newUser.save();
         res.json({ msg: "Account has been activated!" });
