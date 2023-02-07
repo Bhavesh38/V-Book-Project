@@ -9,6 +9,7 @@ const Login = () => {
 
   const [studentLoginFormActiveness, setStudentLoginFormActiveness] = useState(true);
   const [teacherLoginFormActiveness, setTeacherLoginFormActiveness] = useState(false);
+
   useEffect(() => {
     setStudentLoginFormActiveness(true);
     setTeacherLoginFormActiveness(false);
@@ -35,7 +36,7 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Login;
 
 
 

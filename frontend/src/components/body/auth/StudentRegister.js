@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from "react-redux"
 import GoogleIcon from '@mui/icons-material/Google';
 import { Link } from "react-router-dom";
-
-import "./Register.css";
 import { studentRegister } from '../../../redux/actions/authAction';
+import "./Register.css";
 const StudentRegister = () => {
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({

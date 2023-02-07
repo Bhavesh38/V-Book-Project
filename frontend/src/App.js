@@ -72,7 +72,6 @@ function App() {
       getUser();
     }
   }, [token, dispatch]);
-  console.log("bhavesh")
   return (
 
     <div className="main">
@@ -107,11 +106,14 @@ function App() {
           path="/register"
           element={isLogged ? <NotFound /> : <Register />}
         />
-        <Route
+
+        <Route path="/user/activate/:token" element={<ActivationEmail />} />
+
+        {/* <Route
 
           path="/user/activate/:activation_token"
           element={<ActivationEmail />}
-        />
+        /> */}
         <Route
 
           path="/forgot_password"

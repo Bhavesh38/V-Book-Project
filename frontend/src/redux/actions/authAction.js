@@ -9,7 +9,6 @@ export const studentRegister = (formData) => async (dispatch) => {
 
         console.log(formData);
         const data = await api.studentRegisteration(formData);
-
         console.log(data);
     } catch (error) {
         console.log(error);

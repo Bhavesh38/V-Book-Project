@@ -14,12 +14,12 @@ const auth = (req, res, next) => {
                 return res.status(400).json({ msg: "Invalid Authentication" })
             }
             req.user = user
-            next()
+            next();
 
         })
     } catch (err) {
-       return res.status(500).json({msg: err.message})
-        
+        return res.status(500).json({ msg: err.message })
+
     }
 }
-module.exports = auth
+module.exports = auth;

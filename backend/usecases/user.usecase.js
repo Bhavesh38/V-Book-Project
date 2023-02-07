@@ -2,6 +2,8 @@
 //get email and the password from the frontend
 //whenever have a post request u get all the data through the req.body
 const Users = require("../models/userModel");
+const Token = require("../models/tokenModel.js")
+const crypto = require("crypto");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const sendMail = require("./sendMail");
@@ -29,44 +31,53 @@ const userCtrl = {
 
       // if (!validateEmail(email))
       //   return res.status(400).json({ msg: "Invalid email" });
-      console.log("hii1");
-      const user = await userRepository.getUserByEmail(email);
-      console.log("hii2");
+
+      let user = await userRepository.getUserByEmail(email);
+
       if (user)
         return res.status(400).json({ msg: "This email already exists." });
-      console.log("hii3");
+
       if (password.length < 6)
         return res
           .status(400)
           .json({ msg: "Password must be at least 6 characters." });
-      console.log("hii5");
-      const passwordHash = await bcrypt.hash(password, 12);
-      if (isTeacher) {
-        newUser = {
-          name,
-          email,
-          password: passwordHash,
-          Teacher: isTeacher
-        };
-      } else {
-        newUser = {
-          name,
-          email,
-          password: passwordHash,
-        };
-      }
-      console.log("hii6");
-      // const activation_token = createActivationToken(newUser);
 
+      const passwordHash = await bcrypt.hash(password, 12);
+      newUser = {
+        name,
+        email,
+        password: passwordHash,
+        Teacher: isTeacher
+      }
+      user = await new Users({ ...req.body, password: passwordHash }).save();
+      const token = await new Token({
+        userId: user._id,
+        token: crypto.randomBytes(32).toString("hex"),
+      }).save();
+
+      const url = `${process.env.BASE_URL}users/${user.id}/verify/${token.token}`;
+      sendMail(email, url, name, "Verify your email address");
+      // if (isTeacher) {
+      //   newUser = {
+      //     name,
+      //     email,
+      //     password: passwordHash,
+      //     Teacher: isTeacher
+      //   };
+      // } else {
+      //   newUser = {
+      //     name,
+      //     email,
+      //     password: passwordHash,
+      //   };
+      // }
+      // const activation_token = createActivationToken(newUser);
       // const url = `${CLIENT_URL}user/activate/${activation_token}`;
       // sendMail(email, url, name, "Verify your email address");
-
       res.status(201).json({
         msg: "Register Success! Please activate your email to start.",
       });
-      console.log("hii7");
     } catch (err) {
-      console.log("hii8");
       return res.status(500).json({ msg: err.message });
     }
   },
