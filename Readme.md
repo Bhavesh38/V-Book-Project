@@ -1,5 +1,6 @@
 # V BOOK
-![image](https://user-images.githubusercontent.com/93031723/217029587-aa8118e3-6ce4-4e01-b989-19c403b7c631.png)
+
+![v-book logo](https://user-images.githubusercontent.com/88141521/217517475-f282fa18-95af-48be-92ac-c5508a24b1dd.png)
 
 
 **DESCRIPTION**
