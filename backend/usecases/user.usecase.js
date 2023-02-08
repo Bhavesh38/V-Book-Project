@@ -54,9 +54,10 @@ const userCtrl = {
         userId: user._id,
         token: crypto.randomBytes(32).toString("hex"),
       }).save();
+      const url = `http://localhost:3000/${user.id}/verify/${token.token}`;
+      console.log("Register Success! Please activate your email to start1");
+      sendMail(user.email, url, name, "Verify Your Email");
 
-      const url = `${process.env.BASE_URL}users/${user.id}/verify/${token.token}`;
-      sendMail(email, url, name, "Verify your email address");
       // if (isTeacher) {
       //   newUser = {
       //     name,
@@ -74,6 +75,7 @@ const userCtrl = {
       // const activation_token = createActivationToken(newUser);
       // const url = `${CLIENT_URL}user/activate/${activation_token}`;
       // sendMail(email, url, name, "Verify your email address");
+      console.log("Register Success! Please activate your email to start1");
       res.status(201).json({
         msg: "Register Success! Please activate your email to start.",
       });
@@ -83,48 +85,65 @@ const userCtrl = {
   },
   activateEmail: async (req, res) => {
     try {
-      //http://localhost:5000/user/activation
-      /*register : after the user set the fields we send a request to check 
-            if evryething fine and the email not already in DB and set the token with user 
-            */
-      /* activateEmail: if click to the lien of email that we send it  -  send a req with the token_code(user)
-       */
-      const { activation_token } = req.body;
-      const user = jwt.verify(
-        activation_token,
-        process.env.ACTIVATION_TOKEN_SECRET
-      );
-      /*console.log(user);
-            //that user contain all fields {
-            name: 'User 01',
-             email: 'adam7hisoka@gmail.com',
-             password: '$2b$12$6fOX2Q6gm4Fc9yX.HxmX6e0//dlsO2LbYG6m6rmzecOvfv4BAr3a.',
-             iat: 1620786747,
-             exp: 1620787347
-            }*/
-      const { name, email, password, Teacher } = user;
-      //check if the user already registred
-      const check = await userRepository.getUserByEmail(email);
-      if (check)
-        return res.status(400).json({ msg: "This email already exist" });
-      //if not create one and save it to DB
-      if (Teacher) {
-        const newUser = new Users({
-          name,
-          email,
-          password,
-          Teacher,
+      const user = await Users.findOne({ _id: req.params.id });
+      if (!user) return res.status(400).send({ message: "Invalid link" });
 
-        });
-        await newUser.save();
-        res.json({ msg: "Account has been activated!" });
-      } else {
-        await userRepository.createNewUser(name, email, password);
-        res.json({ msg: "Account has been activated!" });
-      }
-    } catch (err) {
-      return res.status(500).json({ msg: err.message });
+      const token = await Token.findOne({
+        userId: user._id,
+        token: req.params.token,
+      });
+      if (!token) return res.status(400).send({ message: "Invalid link" });
+
+      await Users.updateOne({ _id: user._id, verified: true });
+      await token.remove();
+
+      res.status(200).send({ message: "Email verified successfully" });
+    } catch (error) {
+      res.status(500).send({ message: "Internal Server Error" });
     }
+    // try {
+    //http://localhost:5000/user/activation
+    /*register : after the user set the fields we send a request to check 
+          if evryething fine and the email not already in DB and set the token with user 
+          */
+    /* activateEmail: if click to the lien of email that we send it  -  send a req with the token_code(user)
+     */
+    // const { activation_token } = req.body;
+    // const user = jwt.verify(
+    //   activation_token,
+    //   process.env.ACTIVATION_TOKEN_SECRET
+    // );
+    /*console.log(user);
+          //that user contain all fields {
+          name: 'User 01',
+           email: 'adam7hisoka@gmail.com',
+           password: '$2b$12$6fOX2Q6gm4Fc9yX.HxmX6e0//dlsO2LbYG6m6rmzecOvfv4BAr3a.',
+           iat: 1620786747,
+           exp: 1620787347
+          }*/
+    // const { name, email, password, Teacher } = user;
+    //check if the user already registred
+    // const check = await userRepository.getUserByEmail(email);
+    // if (check)
+    //   return res.status(400).json({ msg: "This email already exist" });
+    //if not create one and save it to DB
+    //   if (Teacher) {
+    //     const newUser = new Users({
+    //       name,
+    //       email,
+    //       password,
+    //       Teacher,
+
+    //     });
+    //     await newUser.save();
+    //     res.json({ msg: "Account has been activated!" });
+    //   } else {
+    //     await userRepository.createNewUser(name, email, password);
+    //     res.json({ msg: "Account has been activated!" });
+    //   }
+    // } catch (err) {
+    //   return res.status(500).json({ msg: err.message });
+    // }
   },
   login: async (req, res) => {
     try {

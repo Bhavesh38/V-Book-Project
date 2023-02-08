@@ -13,8 +13,9 @@ app.use(cookieParser());
 app.use(fileUpoad({ useTempFiles: true }));
 
 //Load all routes
+console.log("Hii");
 app.use("/", indexRoutes);
-
+console.log("Hii");
 app.use((err, req, res, next) => {
   // because err.status is undefined
   res.status(404).json({

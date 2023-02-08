@@ -107,8 +107,8 @@ function App() {
           element={isLogged ? <NotFound /> : <Register />}
         />
 
-        <Route path="/user/activate/:token" element={<ActivationEmail />} />
-
+        <Route path="/user/:id/verify/:token" element={<ActivationEmail />} />
+        {/* path="/user/:id/verify/:token" */}
         {/* <Route
 
           path="/user/activate/:activation_token"

@@ -10,7 +10,7 @@ new user in the database and then return the
 created user as a response.  */
 
 router.post("/register", userCtrl.register);
-router.post("/activation", userCtrl.activateEmail);
+router.get("/:id/verify/:token", userCtrl.activateEmail);
 router.post("/login", userCtrl.login);
 router.post("/refresh_token", userCtrl.getAccessToken);
 router.post("/forgot", userCtrl.forgotPassword);
