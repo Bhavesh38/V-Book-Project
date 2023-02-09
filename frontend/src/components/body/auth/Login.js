@@ -1,46 +1,49 @@
-import React, { useState, useEffect } from 'react'
-import StudentLogin from './StudentLogin';
-import TeahcerLogin from './TeahcerLogin';
-
-
+import React, { useState, useEffect } from "react";
+import StudentLogin from "./StudentLogin";
+import TeahcerLogin from "./TeahcerLogin";
 
 import "./Login.css";
 const Login = () => {
+	const [studentLoginFormActiveness, setStudentLoginFormActiveness] = useState(true);
+	const [teacherLoginFormActiveness, setTeacherLoginFormActiveness] = useState(false);
 
-  const [studentLoginFormActiveness, setStudentLoginFormActiveness] = useState(true);
-  const [teacherLoginFormActiveness, setTeacherLoginFormActiveness] = useState(false);
+	useEffect(() => {
+		setStudentLoginFormActiveness(true);
+		setTeacherLoginFormActiveness(false);
+	}, []);
 
-  useEffect(() => {
-    setStudentLoginFormActiveness(true);
-    setTeacherLoginFormActiveness(false);
-  }, []);
-
-  return (
-    <div className='login'>
-      <h1>EduSpace</h1>
-      <h3>Login</h3>
-      <p>See Your growth and success!</p>
-      <div className='login_form_heading'>
-        <span onClick={() => {
-          setStudentLoginFormActiveness(true)
-          setTeacherLoginFormActiveness(false)
-        }} className={studentLoginFormActiveness && 'login_form_heading_student_active'}>For Students</span>
-        <span onClick={() => {
-          setStudentLoginFormActiveness(false)
-          setTeacherLoginFormActiveness(true)
-        }} className={teacherLoginFormActiveness && 'login_form_heading_teacher_active'}>For Teachers</span>
-      </div>
-      {studentLoginFormActiveness && <StudentLogin />}
-      {teacherLoginFormActiveness && <TeahcerLogin />}
-    </div >
-  )
-}
+	return (
+		<div className="login">
+			<h1>EduSpace</h1>
+			<h3>Login</h3>
+			<p>See Your growth and success!</p>
+			<div className="login_form_heading">
+				<span
+					onClick={() => {
+						setStudentLoginFormActiveness(true);
+						setTeacherLoginFormActiveness(false);
+					}}
+					className={studentLoginFormActiveness && "login_form_heading_student_active"}
+				>
+					For Students
+				</span>
+				<span
+					onClick={() => {
+						setStudentLoginFormActiveness(false);
+						setTeacherLoginFormActiveness(true);
+					}}
+					className={teacherLoginFormActiveness && "login_form_heading_teacher_active"}
+				>
+					For Teachers
+				</span>
+			</div>
+			{studentLoginFormActiveness && <StudentLogin />}
+			{teacherLoginFormActiveness && <TeahcerLogin />}
+		</div>
+	);
+};
 
 export default Login;
-
-
-
-
 
 // import React, { useState } from "react";
 // import { Image, Form, Button } from "antd";

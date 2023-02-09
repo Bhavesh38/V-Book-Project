@@ -1,5 +1,6 @@
 # V BOOK
-![image](https://user-images.githubusercontent.com/93031723/217029587-aa8118e3-6ce4-4e01-b989-19c403b7c631.png)
+
+![v-book logo](https://user-images.githubusercontent.com/88141521/217517475-f282fa18-95af-48be-92ac-c5508a24b1dd.png)
 
 
 **DESCRIPTION**
@@ -8,21 +9,18 @@ This project is a part of Diversion 2k23.
 
 **TABLE OF CONTENTS**
 
-* [Features]()
-* [Its Principle]()
-
-* [Extra features]()
-
-   1.features for students
-
-  2.features for teachers
-* [Technologies Used]()
-* [Roadmap]()
-* [Contact]()
-* [upcoming plans]()
-* [project maintainer infromation]()
-* [github_information]()
-* 
+- [V BOOK](#v-book)
+    - [Features](#features)
+    - [Its Principle](#its-principle)
+    - [Extra Features](#extra-features)
+    - [1. Features for Students](#1-features-for-students)
+    - [2. Features for Teachers](#2-features-for-teachers)
+    - [Technologies Used](#technologies-used)
+    - [Roadmap](#roadmap)
+  - [Contact](#contact)
+    - [Project Maintainer](#project-maintainer)
+  - [Plans in progress](#plans-in-progress)
+    - [Github information](#github-information)
 
 ### Features
 - No need to carry a whole bundle of books 
@@ -37,16 +35,17 @@ says)
 
 
 
-### Extra Features (that will make this project more successful)
+### Extra Features 
+(that will make this project more successful)
 
-#### First of all,It’s an all in one platform both for teachers and students
+First of all,It’s an all in one platform both for teachers and students
 
-1.features for students
+### 1. Features for Students
 - Students can add the short clips of the topics in the class notes that they need to revise again
 - Students can make voice notes ,so that by listening they can get the concept easily.
 
 
-2.features for teachers
+### 2. Features for Teachers
 - They do not need to create ppts or learning materials,it will be provided by V Book Web app itself.
 
 ### Technologies Used
@@ -68,25 +67,27 @@ See the [open issues](https://github.com/Bhavesh38/V-Book-Project) for a list of
 
 Project Link: https://github.com/Bhavesh38/V-Book-Project
 
+### Project Maintainer
 
-### Plans in progress
+Vaibhav Patel,
+3rd year CSE,
+Student of IEM 
+
+
+**Discord ID** Vaibhav#3656
+
+**Email ID**   vaibhavpatel9956@gmail.com
+
+## Plans in progress
 - Email verification
 - Footer designing
 - V-book cards deployment 
 - V-book audio and video 
 - v-book designing 
 
-### project maintainer
-Leader
-VAIBHAV PATEL
-student of IEM 
-3rd year cse
 
-you can conatct me on discord my dicord id is Vaibhav#3656
 
-you can mail me my email id is vaibhavpatel9956@gmail.com
-
-### github information 
+### Github information 
 
 Clone With main branch for latest code.
 
