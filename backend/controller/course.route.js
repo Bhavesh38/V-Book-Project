@@ -3,6 +3,7 @@ const coursesCtrl = require("../usecases/courses.usecase");
 const auth = require("../middleware/auth");
 const admin = require("../middleware/authAdmin");
 const isTeacher = require("../middleware/isTeacher");
+
 //visit ->  list 6  courses by cg
 router.get("/topic", coursesCtrl.getallcoursesbycategory);
 //visit ->  list 6 courses sorted by rating

@@ -5,6 +5,7 @@ const orderRoute = require("./order.route");
 const bookRoutes = require("./book.route");
 const categoryRoutes = require("./categories.route");
 const router = require("express").Router();
+
 //Routes
 router.use("/user", userRoutes);
 router.use("/api", uploadRoutes);
