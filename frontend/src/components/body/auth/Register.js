@@ -1,46 +1,48 @@
-import React, { useState, useEffect } from 'react'
-import StudentRegister from './StudentRegister';
-import TeacherRegister from './TeacherRegister';
+import React, { useState, useEffect } from "react";
+import StudentRegister from "./StudentRegister";
+import TeacherRegister from "./TeacherRegister";
 
 import "./Register.css";
 const Register = () => {
+	const [studentRegisterFormActiveness, setStudentRegisterFormActiveness] = useState(true);
+	const [teacherRegisterFormActiveness, setTeacherRegisterFormActiveness] = useState(false);
+	useEffect(() => {
+		setStudentRegisterFormActiveness(true);
+		setTeacherRegisterFormActiveness(false);
+	}, []);
 
-  const [studentRegisterFormActiveness, setStudentRegisterFormActiveness] = useState(true);
-  const [teacherRegisterFormActiveness, setTeacherRegisterFormActiveness] = useState(false);
-  useEffect(() => {
-    setStudentRegisterFormActiveness(true);
-    setTeacherRegisterFormActiveness(false);
-  }, []);
+	return (
+		<div className="register">
+			<h1>EduSpace</h1>
+			<h3>Register</h3>
+			<p>See Your growth and success!</p>
+			<div className="register_form_heading">
+				<span
+					onClick={() => {
+						setStudentRegisterFormActiveness(true);
+						setTeacherRegisterFormActiveness(false);
+					}}
+					className={studentRegisterFormActiveness && "register_form_heading_student_active"}
+				>
+					For Students
+				</span>
+				<span
+					onClick={() => {
+						setStudentRegisterFormActiveness(false);
+						setTeacherRegisterFormActiveness(true);
+					}}
+					className={teacherRegisterFormActiveness && "register_form_heading_teacher_active"}
+				>
+					For Teachers
+				</span>
+			</div>
+			{studentRegisterFormActiveness && <StudentRegister />}
+			{teacherRegisterFormActiveness && <TeacherRegister />}
+		</div>
+	);
+};
 
-  
-  return (
-    <div className='register'>
-      <h1>EduSpace</h1>
-      <h3>Register</h3>
-      <p>See Your growth and success!</p>
-      <div className='register_form_heading'>
-        <span onClick={() => {
-          setStudentRegisterFormActiveness(true)
-          setTeacherRegisterFormActiveness(false)
-        }} className={studentRegisterFormActiveness && 'register_form_heading_student_active'}>For Students</span>
-        <span onClick={() => {
-          setStudentRegisterFormActiveness(false)
-          setTeacherRegisterFormActiveness(true)
-        }} className={teacherRegisterFormActiveness && 'register_form_heading_teacher_active'}>For Teachers</span>
-      </div>
-      {studentRegisterFormActiveness && <StudentRegister />}
-      {teacherRegisterFormActiveness && <TeacherRegister />}
-    </div >
-  )
-}
-
-export default Register
-
-
-
-
-
-
+export default Register;
 
 // import React, { useState } from "react";
 // import { Image, Input } from "antd";
@@ -204,7 +206,7 @@ export default Register
 //               {success && showSuccessMsg(success)}
 //               <div className="input-div one">
 //                 <div className="i">
-                 
+
 //                   FiUser
 //                 </div>
 //                 <div className="div">
@@ -220,7 +222,7 @@ export default Register
 //               </div>
 //               <div className="input-div one">
 //                 <div className="i">
-                 
+
 //                   MdEmail
 //                 </div>
 //                 <div className="div">
@@ -236,7 +238,7 @@ export default Register
 //               </div>
 //               <div className="input-div pass">
 //                 <div className="i">
-                  
+
 //                   AiFillLock
 //                 </div>
 //                 <div className="div">
@@ -252,7 +254,7 @@ export default Register
 //               </div>
 //               <div className="input-div pass">
 //                 <div className="i">
-                 
+
 //                   AiFillLock
 //                 </div>
 //                 <div className="div">

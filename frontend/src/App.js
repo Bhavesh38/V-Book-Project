@@ -1,10 +1,9 @@
-
 import { Routes, Route } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Home from "./pages/Home/Home";
 // import "antd/dist/antd.css";
-import 'antd/dist/reset.css';
+import "antd/dist/reset.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Navbar from "./components/Navbar/Navbar";
@@ -16,11 +15,7 @@ import Login from "./components/body/auth/Login";
 import Register from "./components/body/auth/Register";
 import ActivationEmail from "./components/body/auth/ActivationEmail";
 import axios from "axios";
-import {
-  dispatchLogin,
-  dispatchGetUser,
-  fetchUser,
-} from "./redux/actions/authAction";
+import { dispatchLogin, dispatchGetUser, fetchUser } from "./redux/actions/authAction";
 
 import NotFound from "./components/utils/NotFound/NotFound";
 import ForgotPass from "./components/body/auth/ForgotPassword";
@@ -38,117 +33,84 @@ import EditCourse from "./components/body/profile/EditCourse";
 import CourseSeacrh from "./pages/CourseSearch/CourseSeacrh";
 // import Vbook from "./components/Vbook/Vbook";
 
-
 import "./App.css";
 function App() {
-  //Get Acces token
-  const dispatch = useDispatch();
-  const token = useSelector((state) => state.token);
-  const auth = useSelector((state) => state.auth);
-  const { isLogged, user, isAdmin } = auth;
+	//Get Acces token
+	const dispatch = useDispatch();
+	const token = useSelector((state) => state.token);
+	const auth = useSelector((state) => state.auth);
+	const { isLogged, user, isAdmin } = auth;
 
-  useEffect(() => {
-    const firstLogin = localStorage.getItem("firstLogin");
-    if (firstLogin) {
-      const getToken = async () => {
-        // make post request : hey db get me some data and return it to me
-        const res = await axios.post("/user/refresh_token", null);
-        dispatch({ type: "GET_TOKEN", payload: res.data.access_token });
-      };
-      getToken();
-    }
-  }, [auth.isLogged, dispatch]);
-  // when refresh the token exsit but the logged change to false that's we do that
+	useEffect(() => {
+		const firstLogin = localStorage.getItem("firstLogin");
+		if (firstLogin) {
+			const getToken = async () => {
+				// make post request : hey db get me some data and return it to me
+				const res = await axios.post("/user/refresh_token", null);
+				dispatch({ type: "GET_TOKEN", payload: res.data.access_token });
+			};
+			getToken();
+		}
+	}, [auth.isLogged, dispatch]);
+	// when refresh the token exsit but the logged change to false that's we do that
 
-  useEffect(() => {
-    if (token) {
-      const getUser = () => {
-        dispatch(dispatchLogin());
-        //Get user infor
-        return fetchUser(token).then((res) => {
-          dispatch(dispatchGetUser(res));
-        });
-      };
-      getUser();
-    }
-  }, [token, dispatch]);
-  return (
+	useEffect(() => {
+		if (token) {
+			const getUser = () => {
+				dispatch(dispatchLogin());
+				//Get user infor
+				return fetchUser(token).then((res) => {
+					dispatch(dispatchGetUser(res));
+				});
+			};
+			getUser();
+		}
+	}, [token, dispatch]);
+	return (
+		<div className="main">
+			<Navbar />
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/courses/:id" element={<Coursepage />} />
 
-    <div className="main">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/courses/:id" element={<Coursepage />} />
+				<Route path="/coursesfilter/:topic" element={<CourseFilter />} />
+				<Route path="/AllCourses" element={<AllCourses />} />
+				<Route path="/ContactUs" element={<ContactUs />} />
 
-        <Route path="/coursesfilter/:topic" element={<CourseFilter />} />
-        <Route path="/AllCourses" element={<AllCourses />} />
-        <Route path="/ContactUs" element={<ContactUs />} />
+				<Route path="/AllBooks" element={<AllBooks />} />
+				<Route path="/Instructorvideo" element={<AllCourses />} />
 
-        <Route path="/AllBooks" element={<AllBooks />} />
-        <Route path="/Instructorvideo" element={<AllCourses />} />
+				<Route path="/Mycourses" element={isLogged ? <Mycourses /> : <NotFound />} />
+				<Route path="/checkout" element={isLogged ? <CheckoutScreen /> : <Login />} />
 
-        <Route
-          path="/Mycourses"
-          element={isLogged ? <Mycourses /> : <NotFound />}
-        />
-        <Route
-          path="/checkout"
-          element={isLogged ? <CheckoutScreen /> : <Login />}
-        />
+				<Route
+					path="/login"
+					// element={isLogged ? <NotFound /> : <NotFound />}
+					element={!isLogged ? <Login /> : <NotFound />}
+				/>
+				<Route path="/register" element={isLogged ? <NotFound /> : <Register />} />
 
-        <Route
-          path="/login"
-          // element={isLogged ? <NotFound /> : <NotFound />}
-          element={!isLogged ? <Login /> : <NotFound />}
-        />
-        <Route
-
-          path="/register"
-          element={isLogged ? <NotFound /> : <Register />}
-        />
-
-        <Route path="/user/:id/verify/:token" element={<ActivationEmail />} />
-        {/* path="/user/:id/verify/:token" */}
-        {/* <Route
+				<Route path="/user/:id/verify/:token" element={<ActivationEmail />} />
+				{/* path="/user/:id/verify/:token" */}
+				{/* <Route
 
           path="/user/activate/:activation_token"
           element={<ActivationEmail />}
         /> */}
-        <Route
+				<Route path="/forgot_password" element={isLogged ? <NotFound /> : <ForgotPass />} />
+				<Route path="/user/reset/:token" element={isLogged ? <NotFound /> : <ResetPass />} />
+				<Route path="/profile" element={isLogged ? <Profile /> : <NotFound />} />
+				<Route path="/edit_user/:id" element={isAdmin ? <EditUser /> : <NotFound />} />
+				<Route path="/editcourse/:id" element={user.Teacher || isAdmin ? <EditCourse /> : <NotFound />} />
+				<Route path="/search/:keyword" element={<CourseSeacrh />} />
+				<Route path="/subcategory/:subcategory" element={<Subcategory />} />
 
-          path="/forgot_password"
-          element={isLogged ? <NotFound /> : <ForgotPass />}
-        />
-        <Route
-          path="/user/reset/:token"
-          element={isLogged ? <NotFound /> : <ResetPass />}
+				<Route element={<NotFound />} />
+			</Routes>
 
-        />
-        <Route
-          path="/profile"
-          element={isLogged ? <Profile /> : <NotFound />}
-
-        />
-        <Route
-          path="/edit_user/:id"
-          element={isAdmin ? <EditUser /> : <NotFound />}
-
-        />
-        <Route
-          path="/editcourse/:id"
-          element={user.Teacher || isAdmin ? <EditCourse /> : <NotFound />}
-
-        />
-        <Route path="/search/:keyword" element={<CourseSeacrh />} />
-        <Route path="/subcategory/:subcategory" element={<Subcategory />} />
-
-        <Route element={<NotFound />} />
-      </Routes>
-
-      <Footer />
-    </div>
-
-  );
+			<Footer />
+		</div>
+	);
 }
 
 export default App;

@@ -3,38 +3,41 @@ import Rating from "./Rating";
 
 // import { BiLike, BiDislike } from "react-icons/all";
 const Comments = ({ commentPerson, commentMessage, rating, date }) => {
-  const [backgroundColor, setBackgroundColor] = useState("white");
-  const [backgroundDisColor, setBackgroundDisColor] = useState("white");
+	const [backgroundColor, setBackgroundColor] = useState("white");
+	const [backgroundDisColor, setBackgroundDisColor] = useState("white");
 
-  return (
-    <div className="comments">
-      <div className="comment">
-        <div className="commentName">
-          <h3>{commentPerson}</h3>
-        </div>
-        <div className="commentRating">
-          <Rating value={rating} />
-          <i className="commentDate">( {date} )</i>
-        </div>
-        <div className="commentParagraph">
-          <p>{commentMessage}</p>
-        </div>
-        <div className="likeOrDislike">
-          <span style={{ background: backgroundColor }} className="bilike" >BiLike</span>
-          {/* <BiLike /> */}
-          <span style={{ background: backgroundDisColor }}
-            className="bidislike">BiDislike</span>
-          {/* <BiDislike
+	return (
+		<div className="comments">
+			<div className="comment">
+				<div className="commentName">
+					<h3>{commentPerson}</h3>
+				</div>
+				<div className="commentRating">
+					<Rating value={rating} />
+					<i className="commentDate">( {date} )</i>
+				</div>
+				<div className="commentParagraph">
+					<p>{commentMessage}</p>
+				</div>
+				<div className="likeOrDislike">
+					<span style={{ background: backgroundColor }} className="bilike">
+						BiLike
+					</span>
+					{/* <BiLike /> */}
+					<span style={{ background: backgroundDisColor }} className="bidislike">
+						BiDislike
+					</span>
+					{/* <BiDislike
             style={{ background: backgroundDisColor }}
             className="bidislike"
           /> */}
-        </div>
-      </div>
-      <br></br>
-      <hr></hr>
-      <br></br>
-    </div>
-  );
+				</div>
+			</div>
+			<br></br>
+			<hr></hr>
+			<br></br>
+		</div>
+	);
 };
 
 export default Comments;

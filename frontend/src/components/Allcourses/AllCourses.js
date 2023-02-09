@@ -6,14 +6,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function AllCourses() {
-  return (
-    <div className="App">
-      <ScrollToTop smooth />
+	return (
+		<div className="App">
+			<ScrollToTop smooth />
 
-      <Slider />
-      <Cards />
-    </div>
-  );
+			<Slider />
+			<Cards />
+		</div>
+	);
 }
 
 export default AllCourses;
