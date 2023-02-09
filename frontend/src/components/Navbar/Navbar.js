@@ -115,7 +115,7 @@ const Navbar = ({ match, history }) => {
 			setvisbile(false);
 			setshowicons(false);
 		}
-		return () => {};
+		return () => { };
 	}, [width]);
 	const Activateburger = () => {
 		showDrawer();
@@ -168,7 +168,7 @@ const Navbar = ({ match, history }) => {
 				{!showicons && (
 					<div classname="onright">
 						<ol>
-							<Link to="/register">
+							<Link to="/instructorPortal">
 								<Button disabled={isLogged} className="Navbarbtns" id="Teacherbtn">
 									Instructor Portal
 								</Button>

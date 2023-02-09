@@ -6,7 +6,7 @@ const Footer = () => {
 	let d = new Date();
 	let n = d.getFullYear();
 	return (
-		<div className="footer">
+		<footer className="footer">
 			<div className="subfooter">
 				<div>
 					<img alt="vclassroom.png" src="https://i.imgur.com/4jq68uE.png" className="footer_logo" />
@@ -40,7 +40,7 @@ const Footer = () => {
 				<img alt="bvooks.png" src="./assets/" className="footer_logo" />
 				<div className="copyright">Copyright © {n} Vbook</div>
 			</div>
-		</div>
+		</footer>
 	);
 };
 

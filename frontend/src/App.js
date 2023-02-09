@@ -34,6 +34,9 @@ import CourseSeacrh from "./pages/CourseSearch/CourseSeacrh";
 // import Vbook from "./components/Vbook/Vbook";
 
 import "./App.css";
+import NewBookHome from "./components/Instructor/VBookCreation/NewBook/NewBookHome";
+import Instructor from "./components/Instructor/Instructor";
+import VBookRichTextEdditor from "./components/Instructor/VBookCreation/NewBook/VBookRichTextEdditor";
 function App() {
 	//Get Acces token
 	const dispatch = useDispatch();
@@ -76,7 +79,9 @@ function App() {
 				<Route path="/coursesfilter/:topic" element={<CourseFilter />} />
 				<Route path="/AllCourses" element={<AllCourses />} />
 				<Route path="/ContactUs" element={<ContactUs />} />
-
+				<Route path="/instructorPortal" element={<Instructor />} />
+				<Route path="/instructorPortal/newBook" element={<NewBookHome />} />
+				<Route path="/instructorPortal/newBook/id" element={<VBookRichTextEdditor />} />
 				<Route path="/AllBooks" element={<AllBooks />} />
 				<Route path="/Instructorvideo" element={<AllCourses />} />
 
