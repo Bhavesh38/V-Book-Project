@@ -31,13 +31,13 @@ const sendEmail = async (to, url, name, txt) => {
       port: 587,
       secure: false,
       auth: {
-        user: "mern.dev.bhavesh38@gmail.com",
+        user: "bhavesh.38.kumar@gmail.com",
         pass: "Apurv@123",
       },
     });
     console.log("before transport");
     var mailOptions = {
-      from: 'mern.dev.bhavesh38@gmail.com',
+      from: 'bhavesh.38.kumar@gmail.com',
       to: to,
       subject: 'Email Verification',
       html: `<p>Please click the following link to verify your email:</p>' +
@@ -45,7 +45,7 @@ const sendEmail = async (to, url, name, txt) => {
     };
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
-        console.log("error occures bhavesh")
+        console.log("error occured bhavesh")
         console.log(error);
       } else {
         console.log('Email sent: ' + info.response);
