@@ -4,4 +4,15 @@ This project is a part of Diversion 2k23.
 
 **TABLE OF CONTENTS**
 
-Contributors-Name          No. of Successfully merged pull requests
+Contributors-Name             No. of Successfully merged pull requests
+1.Bhavesh 
+2.Subroto Rakshit
+3.Prashant kashyap
+4.Nilajan Dutta
+5.Arkatanu
+6.Avcii
+7.Aakash Singh 
+8.
+
+
+         
