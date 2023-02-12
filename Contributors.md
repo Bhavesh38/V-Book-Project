@@ -10,7 +10,7 @@ Contributors-Name             No. of Successfully merged pull requests
 3.Prashant kashyap.                   (1)
 4.Nilajan Dutta.                      (2)
 5.Arkatanu.                           (1)
-6.Avcii.                              (2)
+6.Avicii.                             (2)
 7.Aakash Singh                        (1)
 8.Romit                               (1)
 
