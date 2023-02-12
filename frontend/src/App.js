@@ -112,10 +112,10 @@ function App() {
 
 				<Route element={<NotFound />} />
 			</Routes>
-			<footer>
+			{/* <footer>
 				<Footer />
-			</footer>
-
+			</footer> */}
+			<Footer />
 		</div>
 	);
 }

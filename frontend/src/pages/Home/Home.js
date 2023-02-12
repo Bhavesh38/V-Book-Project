@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { Tabs } from "antd";
 import { Skeleton } from "antd";
-import "./Home.css";
+
 import CourseCard from "../../components/CourseCard/CourseCard";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,6 +16,8 @@ import { dispatchLogin, dispatchGetUser, fetchUser } from "../../redux/actions/a
 import { Listcoursesbypobularity, ListcoursesbyTopic } from "../../redux/actions/courseActions";
 import Error from "../../components/utils/Error";
 
+
+import "./Home.css";
 const Home = () => {
 	const dispatch = useDispatch();
 	const ListCoursesReducer = useSelector((state) => state.ListCoursesReducer);
@@ -118,7 +120,7 @@ const Home = () => {
 	};
 
 	return (
-		<div className="home">
+		<div className="home" style={{ backgroundColor: "white" }}>
 			{/* <h1 style={{ color: "black" }}>hii</h1> */}
 			<Helmet>
 				<title>VCLASSROOM</title>
