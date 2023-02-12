@@ -1,9 +1,11 @@
 .footer {
-  margin-top: 10%;
+  /* margin-top: 10%; */
   position: relative;
   /* top: 600px; */
   /* height: fit-content; */
-  display: grid;
+  /* display: grid; */
+  bottom: 0;
+  /* position: absolute; */
   background-color: #373737;
 }
 .subfooter {
