@@ -21,7 +21,7 @@ import NotFound from "./components/utils/NotFound/NotFound";
 import ForgotPass from "./components/body/auth/ForgotPassword";
 import ResetPass from "./components/body/auth/ResetPassword";
 import Coursepage from "./pages/Coursepage/Coursepage";
-import AllCourses from "./components/Allcourses/AllCourses";
+// import AllCourses from "./components/Allcourses/AllCourses";
 import AllBooks from "./components/AllBooks/AllBooks";
 import Mycourses from "./pages/Mycourses/Mycourses";
 import CourseFilter from "./pages/CourseFilter/CourseFilter";
@@ -77,13 +77,13 @@ function App() {
 				<Route path="/courses/:id" element={<Coursepage />} />
 
 				<Route path="/coursesfilter/:topic" element={<CourseFilter />} />
-				<Route path="/AllCourses" element={<AllCourses />} />
+				{/* <Route path="/AllCourses" element={<AllCourses />} /> */}
 				<Route path="/ContactUs" element={<ContactUs />} />
 				<Route path="/instructorPortal" element={<Instructor />} />
 				<Route path="/instructorPortal/newBook" element={<NewBookHome />} />
 				<Route path="/instructorPortal/newBook/id" element={<VBookRichTextEdditor />} />
 				<Route path="/AllBooks" element={<AllBooks />} />
-				<Route path="/Instructorvideo" element={<AllCourses />} />
+				{/* <Route path="/Instructorvideo" element={<AllCourses />} /> */}
 
 				<Route path="/Mycourses" element={isLogged ? <Mycourses /> : <NotFound />} />
 				<Route path="/checkout" element={isLogged ? <CheckoutScreen /> : <Login />} />

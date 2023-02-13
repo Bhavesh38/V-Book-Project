@@ -122,7 +122,7 @@ const Navbar = ({ match, history }) => {
 	};
 	return (
 		<>
-			<nav className="navbar">
+			<nav className="navbar" style={{ paddingTop: "1%" }}>
 				<div className="burger" onClick={Activateburger}>
 					<div className="line1"></div>
 					<div className="line2"></div>

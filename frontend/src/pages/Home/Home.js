@@ -9,8 +9,8 @@ import Slider from "react-slick";
 import { Tabs } from "antd";
 import { Skeleton } from "antd";
 
-import CourseCard from "../../components/CourseCard/CourseCard";
-import CategoryCard from "../../components/CategoryCard/CategoryCard";
+// import CourseCard from "../../components/CourseCard/CourseCard";
+// import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import { useDispatch, useSelector } from "react-redux";
 import { dispatchLogin, dispatchGetUser, fetchUser } from "../../redux/actions/authAction";
 import { Listcoursesbypobularity, ListcoursesbyTopic } from "../../redux/actions/courseActions";
@@ -18,6 +18,7 @@ import Error from "../../components/utils/Error";
 
 
 import "./Home.css";
+import DynamicCard from "../../components/DynamicCards/DynamicCard";
 const Home = () => {
 	const dispatch = useDispatch();
 	const ListCoursesReducer = useSelector((state) => state.ListCoursesReducer);
@@ -166,7 +167,7 @@ const Home = () => {
 									<Slider {...settings}>
 										{courses.map((course, index) => (
 											<>
-												<CourseCard key={course._id} data-index={index} course={course} />
+												{/* <CourseCard key={course._id} data-index={index} course={course} /> */}
 											</>
 										))}
 									</Slider>
@@ -202,7 +203,7 @@ const Home = () => {
 									<Slider {...settings}>
 										{courses.map((course, index) => (
 											<>
-												<CourseCard key={course._id} data-index={index} course={course} />
+												{/* <CourseCard key={course._id} data-index={index} course={course} /> */}
 											</>
 										))}
 									</Slider>
@@ -235,7 +236,7 @@ const Home = () => {
 									<Slider {...settings}>
 										{courses.map((course, index) => (
 											<>
-												<CourseCard key={course._id} data-index={index} course={course} />
+												{/* <CourseCard key={course._id} data-index={index} course={course} /> */}
 											</>
 										))}
 									</Slider>
@@ -269,7 +270,7 @@ const Home = () => {
 									<Slider {...settings}>
 										{courses.map((course, index) => (
 											<>
-												<CourseCard key={course._id} data-index={index} course={course} />
+												{/* <CourseCard key={course._id} data-index={index} course={course} /> */}
 											</>
 										))}
 									</Slider>
@@ -304,7 +305,7 @@ const Home = () => {
 									<Slider {...settings}>
 										{courses.map((course, index) => (
 											<>
-												<CourseCard key={course._id} data-index={index} course={course} />
+												{/* <CourseCard key={course._id} data-index={index} course={course} /> */}
 											</>
 										))}
 									</Slider>
@@ -340,7 +341,7 @@ const Home = () => {
 									<Slider {...settings}>
 										{courses.map((course, index) => (
 											<>
-												<CourseCard key={course._id} data-index={index} course={course} />
+												{/* <CourseCard key={course._id} data-index={index} course={course} /> */}
 											</>
 										))}
 									</Slider>
@@ -351,7 +352,7 @@ const Home = () => {
 				</Tabs>
 			</section>
 			<section className="Courses_Popular" ref={pobularref}>
-				<h2>Pobular Courses </h2>
+				<h2>Popular Courses </h2>
 				<div className="coursecards">
 					{loadingpobular ? (
 						<Skeleton />
@@ -363,7 +364,7 @@ const Home = () => {
 						<Slider {...settings}>
 							{coursespobular.map((course, index) => (
 								<>
-									<CourseCard key={course._id} data-index={index} course={course} />
+									{/* <CourseCard key={course._id} data-index={index} course={course} /> */}
 								</>
 							))}
 						</Slider>
@@ -371,9 +372,10 @@ const Home = () => {
 				</div>
 			</section>
 			<section className="Categorys_Popular">
-				<h2>Pobular Categories</h2>
+				<h2>Popular Categories</h2>
 				<div className="Categorycards">
-					<CategoryCard
+					<DynamicCard />
+					{/* <CategoryCard
 						title="Development"
 						image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
 					/>
@@ -404,7 +406,7 @@ const Home = () => {
 					<CategoryCard
 						title="Education"
 						image="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-					/>
+					/> */}
 				</div>
 			</section>
 			<section className="Become_Teacher">

@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 import Slider from "react-slick";
 import "./CourseFilter.css";
 import { Link, useParams } from "react-router-dom";
-import CourseCard from "../../components/CourseCard/CourseCard";
+// import CourseCard from "../../components/CourseCard/CourseCard";
 
 import CollapsibleFilter from "./CollapsibleFilter";
 import { Empty, Skeleton } from "antd";
@@ -98,7 +98,7 @@ const CourseFilter = ({ history }) => {
 		dispatch({ type: GET_CRSPRICE_RESET });
 		dispatch(Listcoursesbypobularity(topic));
 		dispatch(ListcoursesbyTopic(topic, true, page));
-		return () => {};
+		return () => { };
 	}, [dispatch, topic, page, history]);
 	if (!loading && totalcourses === 0) {
 		history.push("/notfound");
@@ -138,7 +138,7 @@ const CourseFilter = ({ history }) => {
 									<Slider {...settings}>
 										{coursespobular.map((course, index) => (
 											<>
-												<CourseCard key={course._id} data-index={index} course={course} />
+												{/* <CourseCard key={course._id} data-index={index} course={course} /> */}
 											</>
 										))}
 									</Slider>
@@ -159,7 +159,7 @@ const CourseFilter = ({ history }) => {
 									<Slider {...settings}>
 										{coursesNew.map((course, index) => (
 											<>
-												<CourseCard key={course._id} data-index={index} course={course} />
+												{/* <CourseCard key={course._id} data-index={index} course={course} /> */}
 											</>
 										))}
 									</Slider>
