@@ -7,7 +7,7 @@ import * as api from "../../api/auth.js";
 export const studentRegister = (formData) => async (dispatch) => {
 	try {
 		console.log(formData);
-		const data = await api.studentRegisteration(formData);
+		const { data } = await api.studentRegisteration(formData);
 		console.log(data);
 	} catch (error) {
 		console.log(error);

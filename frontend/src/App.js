@@ -115,7 +115,7 @@ function App() {
 			{/* <footer>
 				<Footer />
 			</footer> */}
-			<Footer />
+			{/* <Footer /> */}
 		</div>
 	);
 }

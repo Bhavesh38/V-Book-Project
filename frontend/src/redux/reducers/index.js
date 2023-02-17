@@ -23,6 +23,7 @@ import {
 import { cartReducer } from "./cartReducer";
 import { CreateOrderReducers, OrderDetailsreducer, OrderListreducer, OrderListMyreducer, OrderPayreducer } from "./orderReducers";
 import usersInfo from "./usersInfoReducer";
+import dynamicCardReducer from "./dynamicCardReducer";
 export default combineReducers({
 	auth,
 	token,
@@ -50,4 +51,6 @@ export default combineReducers({
 	orderPay: OrderPayreducer,
 	orderMylist: OrderListMyreducer,
 	orderList: OrderListreducer,
+	dynamicCardReducer
+
 });

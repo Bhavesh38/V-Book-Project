@@ -19,9 +19,11 @@ import Error from "../../components/utils/Error";
 
 import "./Home.css";
 import DynamicCard from "../../components/DynamicCards/DynamicCard";
+import { fetchCardDatas } from "../../redux/actions/CardAction";
 const Home = () => {
 	const dispatch = useDispatch();
 	const ListCoursesReducer = useSelector((state) => state.ListCoursesReducer);
+	const dynamicCardData = useSelector((state) => state.dynamicCardReducer)
 	const { loading, courses, error } = ListCoursesReducer;
 	const ListCoursesbyPobularityReducer = useSelector((state) => state.ListCoursesbyPobularityReducer);
 	const { loading: loadingpobular, courses: coursespobular, error: errorpobular } = ListCoursesbyPobularityReducer;
@@ -120,6 +122,13 @@ const Home = () => {
 		}
 	};
 
+
+	//fetching card data
+	useEffect(() => {
+		dispatch(fetchCardDatas());
+		console.log(dynamicCardData?.dynamicCardData
+		);
+	}, [])
 	return (
 		<div className="home" style={{ backgroundColor: "white" }}>
 			{/* <h1 style={{ color: "black" }}>hii</h1> */}
@@ -352,7 +361,7 @@ const Home = () => {
 				</Tabs>
 			</section>
 			<section className="Courses_Popular" ref={pobularref}>
-				<h2>Popular Courses </h2>
+				<h2>Popular VBooks </h2>
 				<div className="coursecards">
 					{loadingpobular ? (
 						<Skeleton />
@@ -372,41 +381,21 @@ const Home = () => {
 				</div>
 			</section>
 			<section className="Categorys_Popular">
-				<h2>Popular Categories</h2>
+				<h2>Famous VBooks</h2>
 				<div className="Categorycards">
 					<DynamicCard />
-					{/* <CategoryCard
-						title="Development"
-						image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-					/>
-					<CategoryCard
-						title="Design"
-						image="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80"
-					/>
-					<CategoryCard
-						title="Marketing"
-						image="https://images.unsplash.com/flagged/photo-1556514767-5c270b96a005?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=751&q=80"
-					/>
-					<CategoryCard
-						title="Music"
-						image="https://images.unsplash.com/photo-1507838153414-b4b713384a76?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-					/>
-					<CategoryCard
-						title="Photography"
-						image="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-					/>
-					<CategoryCard
-						title="Self-Dev"
-						image="https://images.unsplash.com/photo-1571425046056-cfc17c664e57?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-					/>
-					<CategoryCard
-						title="Business"
-						image="https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80"
-					/>
-					<CategoryCard
-						title="Education"
-						image="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-					/> */}
+				</div>
+			</section>
+			<section className="Categorys_Popular">
+				<h2>Chipest VBooks</h2>
+				<div className="Categorycards">
+					<DynamicCard />
+				</div>
+			</section>
+			<section className="Categorys_Popular">
+				<h2>Most Visited</h2>
+				<div className="Categorycards">
+					<DynamicCard />
 				</div>
 			</section>
 			<section className="Become_Teacher">

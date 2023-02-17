@@ -5,6 +5,7 @@ import CustomSlider from "./component/customSlider/Slider";
 
 function DynamicCard() {
     const renderDynamicCard = () => {
+
         return cardData.map((data, i) => {
             return (
                 <div style={{ marginLeft: "12px" }}>

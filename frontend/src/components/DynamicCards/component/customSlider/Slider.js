@@ -29,13 +29,12 @@ const Slider = ({ children, id = "slider", row = true }) => {
       setShowLeftArrow(ShopsScrollingContainerRef.current.scrollLeft > 0);
       setShowRightArrow(
         ShopsScrollingContainerRef.current.scrollLeft <
-          ShopsScrollingContainerRef.current.scrollWidth -
-            ShopsScrollingContainerRef.current.clientWidth
+        ShopsScrollingContainerRef.current.scrollWidth -
+        ShopsScrollingContainerRef.current.clientWidth
       );
     }
   }, []);
 
-  console.log(showLeftArrow, "showLeftArrow");
 
   const OnScroll = useCallback(() => {
     ShowHideArrows();

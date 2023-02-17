@@ -10,7 +10,6 @@ const Card = ({
   height = 380,
   ...props
 }) => {
-  console.log(data, "data");
   const { cardname, description, price } = data;
   return (
     <div className="cardContainer" style={{ width, height }}>

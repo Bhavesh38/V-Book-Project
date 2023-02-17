@@ -157,6 +157,7 @@
   margin-right: 30px;
   position: relative;
   /* top: 550px; */
+  text-align: left;
 }
 .Courses_Popular h2 {
   font-weight: 700;
@@ -169,6 +170,7 @@
   /* top: 550px; */
   margin-bottom: 10%;
   /* width: 100%; */
+  text-align: left;
 }
 .Categorys_Popular h2 {
   font-weight: 700;
