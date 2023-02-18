@@ -3,10 +3,17 @@ import Card from "./component/card/Card";
 import { cardData } from "./CardData.js"
 import CustomSlider from "./component/customSlider/Slider";
 
-function DynamicCard() {
+function DynamicCard({ dynamicCardData }) {
+    const [newData, setNewData] = useState(cardData);
+    useEffect(() => {
+        if (dynamicCardData) {
+            setNewData(dynamicCardData);
+
+        }
+    }, [dynamicCardData])
     const renderDynamicCard = () => {
 
-        return cardData.map((data, i) => {
+        return newData.map((data, i) => {
             return (
                 <div style={{ marginLeft: "12px" }}>
                     <Card data={data} showReview key={i} />
