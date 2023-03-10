@@ -1,433 +1,82 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux"
+import { fetchCardDatas } from '../../redux/actions/CardAction';
+import DynamicCard from '../DynamicCards/DynamicCard';
 
-function AllBooks() {
+import "./AllBooks.css"
+const AllBooks = () => {
+	const dispatch = useDispatch();
+	const { dynamicCardData } = useSelector((state) => state.dynamicCardReducer)
+	console.log(dynamicCardData);
+	//fetching card data
+	useEffect(() => {
+		dispatch(fetchCardDatas());
+	}, [])
+	return (
 
-    return (
-        <div className="App">
+		<div className='allBooks'>
+			<div className='allBooks_cards'>
+				<div className='allBooks_cards_heading'>
+					<h1>
+						Class 11 Chemistry
+					</h1>
+					<span>View All</span>
+				</div>
+				<DynamicCard dynamicCardData={dynamicCardData?.Class_11_Chemistry} />
+			</div>
+			<div className='allBooks_cards'>
+				<div className='allBooks_cards_heading'>
+					<h1>
+						Class 11 Physics
+					</h1>
+					<span>View All</span>
+				</div>
 
+				<DynamicCard dynamicCardData={dynamicCardData?.Class_11_Physics} />
+			</div>
+			<div className='allBooks_cards'>
+				<div className='allBooks_cards_heading'>
+					<h1>
+						Class 11 Mathematics
+					</h1>
+					<span>View All</span>
+				</div>
 
+				<DynamicCard dynamicCardData={dynamicCardData?.Class_11_Maths} />
+			</div>
+			<div className='allBooks_cards'>
+				<div className='allBooks_cards_heading'>
+					<h1>
+						Class 12 Chemistry
+					</h1>
+					<span>View All</span>
+				</div>
 
-            {/* <!-- heading --> */}
-            <div class="dis_head section">
-                <div class="heading">
-                    <h2 data-text="VBOOK" id="front">VBOOK</h2>
-                </div>
-            </div>
-            {/* <!-- advertising --> */}
-            <div class="advertisement">
-                <div class="advertisement_slide">
-                    <div class="slider">
-                        <div class="slide active">
-                            <img src="img/1.jpg" alt="" />
-                            <div class="info">
-                                <h2></h2>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="img/2.jpg" alt="" />
-                            <div class="info">
-                                <h2></h2>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="img/3.jpg" alt="" />
-                            <div class="info">
-                                <h2></h2>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="img/4.jpg" alt="" />
-                            <div class="info">
-                                <h2></h2>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="img/5.jpg" alt="" />
-                            <div class="info">
-                                <h2></h2>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="navigation">
-                            <i class="fas fa-chevron-left prev-btn"></i>
-                            <i class="fas fa-chevron-right next-btn"></i>
-                        </div>
-                        <div class="navigation-visibility">
-                            <div class="slide-icon active"></div>
-                            <div class="slide-icon"></div>
-                            <div class="slide-icon"></div>
-                            <div class="slide-icon"></div>
-                            <div class="slide-icon"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* <!-- Heading for class 11th text --> */}
-            <div class="class_11">
-                <h>Class XI</h>
-            </div>
-            {/* <!-- Cards for subject of class 11th --> */}
-            <div class="Container_11">
+				<DynamicCard dynamicCardData={dynamicCardData?.Class_12_Chemistry} />
+			</div>
+			<div className='allBooks_cards'>
+				<div className='allBooks_cards_heading'>
+					<h1>
+						Class 12 Physics
+					</h1>
+					<span>View All</span>
+				</div>
 
-                <div class="phy_11_h" id="phy_11_h">
-                    <h><b><center>Physics</center></b></h>
-                </div>
-                <div class="physics_11">
-                    <section class="phy_11_card_container">
-                        <a href="assets/Newton's Laws Of Motion/Redirect_phy_1.html"><div class="card">
-                            <img src="#" />
-                            <div class="info">
-                                <h1>Newton's Laws of Motion</h1>
-                                <p>In the first law, an object will not change its motion unless a force acts on it. In the second
-                                    law, the force on an object is equal to its mass times its acceleration. In the third law, when
-                                    two objects interact, they apply forces to each other of equal magnitude and opposite direction.</p>
-                            </div>
-                        </div></a>
+				<DynamicCard dynamicCardData={dynamicCardData?.Class_12_Physics} />
+			</div>
+			<div className='allBooks_cards'>
+				<div className='allBooks_cards_heading'>
+					<h1>
+						Class 12 Mathematics
+					</h1>
+					<span>View All</span>
+				</div>
 
-                        <a href=""><div class="card">
-                            <img src="#" />
-                            <div class="info">
-                                <h1>Gravitation</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
+				<DynamicCard dynamicCardData={dynamicCardData?.Class_12_Maths} />
+			</div>
+		</div>
 
-                        <a href=""><div class="card">
-                            <img src="assets/img/11Phy3.jpg" />
-                            <div class="info">
-                                <h1>Work, Power and Energy</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/11Phy4.jpg" />
-                            <div class="info">
-                                <h1>Thermodynamics</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-                    </section>
-                    <div class="see_all">
-                        <a href="">See All</a>
-                    </div>
-                </div>
-
-                <div class="chm_11_h" id="chm_11_h">
-                    <h><b><center>Chemistry</center></b></h>
-                </div>
-                <div class="chemistry_11">
-                    <section class="chm_11_card_container">
-                        <a href=""><div class="card">
-                            <img src="assets/img/11Chem1.jpg" />
-                            <div class="info">
-                                <h1>Atomic Structure</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/11Chem2.jpg" />
-                            <div class="info">
-                                <h1>States of Matter</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/11Chem3.jpg" />
-                            <div class="info">
-                                <h1>Chemical Bonding</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/11Chem4.jpg" />
-                            <div class="info">
-                                <h1>Hydrocarbons</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-                    </section>
-                    <div class="see_all">
-                        <a href="">See All</a>
-                    </div>
-                </div>
-
-                <div class="mth_11_h" id="mth_11_h">
-                    <h><b><center>Mathematics</center></b></h>
-                </div>
-                <div class="mathematics_11">
-                    <section class="mth_11_card_container">
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/11Math1.jpg" />
-                            <div class="info">
-                                <h1>Sequence and Series</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/11Math2.jpg" />
-                            <div class="info">
-                                <h1>Trigonometric Functions</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/11Math3.jpg" />
-                            <div class="info">
-                                <h1>Complex Numbers</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/11Math4.jpg" />
-                            <div class="info">
-                                <h1>Binomial Theorem</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-                    </section>
-                    <div class="see_all">
-                        <a href="">See All</a>
-                    </div>
-                </div>
-                <div class="bio_11_h" id="bio_11_h">
-                    <h><b><center>Biology</center></b></h>
-                </div>
-                <div class="biology_11">
-                    <section class="bio_11_card_container">
-                        <a href=""><div class="card">
-                            <img src="assets/img/11Bio1.jpg" />
-                            <div class="info">
-                                <h1>Biological Classification</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/11Bio2.jpg" />
-                            <div class="info">
-                                <h1>Plant Kingdom</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/11Bio3.jpg" />
-                            <div class="info">
-                                <h1>Animal Kingdom</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/11Bio4.jpg" />
-                            <div class="info">
-                                <h1>Breathing and Exchange of Gases</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-                    </section>
-                    <div class="see_all">
-                        <a href="">See All</a>
-                    </div>
-                </div>
-            </div>
-            {/* <!-- Heading for class 12th text --> */}
-            <div class="class_12">
-                <h>Class XII</h>
-            </div>
-            {/* <!-- Cards for subject of class 12th --> */}
-            <div class="Cantainer_12">
-
-                <div class="phy_12_h" id="phy_12_h">
-                    <h><b><center>Physics</center></b></h>
-                </div>
-                <div class="physics_12">
-                    <section class="phy_12_card_container">
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Phy1.jpg" />
-                            <div class="info">
-                                <h1>Electrostatics</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Phy2.jpg" />
-                            <div class="info">
-                                <h1>Alternating Current</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Phy3.jpg" />
-                            <div class="info">
-                                <h1>Electromagnetic Induction</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Phy4.jpg" />
-                            <div class="info">
-                                <h1>Semiconductors</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-                    </section>
-                    <div class="see_all">
-                        <a href="">See All</a>
-                    </div>
-                </div>
-                <div class="chm_12_h" id="chm_12_h">
-                    <h><b><center>Chemistry</center></b></h>
-                </div>
-                <div class="chemistry_12">
-                    <section class="chm_12_card_container">
-                        <a href="assets/Solid State/Redirect_chm_1.html"><div class="card">
-                            <img src="assets/img/12Chem1.jpg" />
-                            <div class="info">
-                                <h1>Solid State</h1>
-                                <p>Solid state is nothing but one of the state of matter. Solids generally exibit certain
-                                    characteristics that set them apart from Liquids and Gases</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Chem2.jpg" />
-                            <div class="info">
-                                <h1>Solutions</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Chem3.jpg" />
-                            <div class="info">
-                                <h1>Electrochemistry</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Chem4.jpg" />
-                            <div class="info">
-                                <h1>Coordination Compounds</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-                    </section>
-                    <div class="see_all">
-                        <a href="">See All</a>
-                    </div>
-                </div>
-                <div class="mth_12_h" id="mth_12_h">
-                    <h><b><center>Mathematics</center></b></h>
-                </div>
-                <div class="mathematics_12">
-                    <section class="mth_12_card_container">
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Math1.jpg" />
-                            <div class="info">
-                                <h1>Vectors</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Math2.jpg" />
-                            <div class="info">
-                                <h1>Probability</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Math3.jpg" />
-                            <div class="info">
-                                <h1>Continuity and Differentiablity</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Math4.jpg" />
-                            <div class="info">
-                                <h1>Integration</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-                    </section>
-                    <div class="see_all">
-                        <a href="">See All</a>
-                    </div>
-                </div>
-                <div class="bio_12_h" id="bio_12_h">
-                    <h><b><center>Biology</center></b></h>
-                </div>
-                <div class="biology_12">
-                    <section class="bio_12_card_container">
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Bio1.jpg" />
-                            <div class="info">
-                                <h1>Genetics</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Bio2.jpg" />
-                            <div class="info">
-                                <h1>Evolution</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Bio3.jpg" />
-                            <div class="info">
-                                <h1>Human Health and Diseases</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-
-                        <a href=""><div class="card">
-                            <img src="assets/img/12Bio4.jpg" />
-                            <div class="info">
-                                <h1>Biotechnology</h1>
-                                <p>Description</p>
-                            </div>
-                        </div></a>
-                    </section>
-                    <div class="see_all">
-                        <a href="">See All</a>
-                    </div>
-                </div>
-            </div>
-            <a href="#front"><button class="btn">TOP</button></a>
-
-
-
-        </div>
-
-
-    );
+	)
 }
 
-
-export default AllBooks;
+export default AllBooks

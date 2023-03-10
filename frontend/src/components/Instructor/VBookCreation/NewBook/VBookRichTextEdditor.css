@@ -1,0 +1,79 @@
+.app {
+  background-color: antiquewhite;
+}
+
+.row {
+  width: 35%;
+  margin: auto;
+  /* color: white; */
+}
+
+.edditorToolbar {
+  display: flex;
+  justify-content: space-between;
+}
+.ql-formats {
+  display: flex;
+  justify-content: space-between;
+}
+.ql-formats > button {
+  font-size: 1px;
+}
+@media screen and (max-width: 550px) {
+  .row {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 551px) and (max-width: 1100px) {
+  .row {
+    width: 70%;
+  }
+}
+.form-group {
+  height: 32px;
+  width: 100%;
+}
+.chapter_name > label {
+  width: 30%;
+}
+/* .ql-editor {
+    height: 100vh;
+  } */
+.update__forms {
+  background-color: #fff;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.4);
+  /* border: 1px solid rgb(56, 55, 55); */
+  margin: 4%;
+  padding: 16px;
+  border-radius: 4px;
+}
+
+.editor {
+  height: 100vh;
+  border: 1px dotted rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow-y: scroll;
+}
+/* .ql-blank {
+    border-bottom: none;
+    width: 100vh;
+  } */
+/* .edditorToolbar {
+    border-bottom: 1px solid #000;
+  } */
+/* .ql-editor {
+    height: 130vh;
+  } */
+.text-right > button {
+  font-size: 1.5rem;
+  box-shadow: 2px 2px 2px 2px rgb(216, 216, 250);
+  margin-right: 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  padding: 8px;
+}
+.text-right > button:hover {
+  cursor: pointer;
+  background-color: rgb(228, 226, 226);
+}

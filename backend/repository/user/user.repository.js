@@ -1,18 +1,18 @@
 const Users = require("../../models/userModel");
 const createNewUser = async ({ name, email, password }) => {
-  const newUser = new Users({ name, email, password });
-  await newUser.save();
+	const newUser = new Users({ name, email, password });
+	await newUser.save();
 };
 
 const deleteUserById = async (id) => {
-  return await Users.findByIdAndDelete(id);
+	return await Users.findByIdAndDelete(id);
 };
 const getUserByEmail = async (user) => {
-  return await Users.findOne({ email });
+	return await Users.findOne({ user });
 };
 
 module.exports = {
-  deleteUserById,
-  createNewUser,
-  getUserByEmail,
+	deleteUserById,
+	createNewUser,
+	getUserByEmail,
 };

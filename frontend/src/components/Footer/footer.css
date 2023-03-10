@@ -1,14 +1,11 @@
 .footer {
-  margin-top: 10%;
-  position: relative;
-  /* top: 600px; */
-  /* height: fit-content; */
-  display: grid;
   background-color: #373737;
+  position: relative;
+  bottom: 0;
 }
 .subfooter {
   font-weight: 600;
-  height: fit-content;
+  height: 10vh;
   background: #252525;
   color: #fff;
   padding: 20px;
@@ -29,14 +26,15 @@
   width: 120px;
   height: 35px;
   justify-self: center;
-  filter: gray;
+
   -webkit-filter: grayscale(100%);
+  filter: gray;
   transition: filter 0.3s linear 0.3s;
 }
 .footer_logo:hover,
 .payement_method:hover {
-  filter: none; /* IE6-9 */
   -webkit-filter: grayscale(0%);
+  filter: none; /* IE6-9 */
 }
 .footer ul {
   margin: 10px 30px;
@@ -60,13 +58,14 @@ li {
   object-fit: contain;
   height: 30px;
   margin-left: 20px;
-  filter: gray; /* IE6-9 */
+
   -webkit-filter: grayscale(30%);
+  filter: gray; /* IE6-9 */
   transition: filter 0.3s linear 0.3s;
 }
 .social_icons:hover {
-  filter: none; /* IE6-9 */
   -webkit-filter: grayscale(0%);
+  filter: none; /* IE6-9 */
 }
 
 .get_in_contact h1,

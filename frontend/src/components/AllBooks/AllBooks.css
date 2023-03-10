@@ -1,0 +1,28 @@
+.allBooks {
+  margin: 2%;
+}
+.allBooks_cards {
+  padding: 2%;
+  box-shadow: 0 0 10px gray;
+  margin: 2% 0;
+  background-color: rgb(73, 135, 241);
+  color: white;
+}
+.allBooks_cards_heading {
+  background-color: white;
+  color: black;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 12px;
+  border-radius: 4px;
+}
+.allBooks_cards_heading > span {
+  font-weight: 700;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.allBooks_cards_heading > span:hover {
+  color: rgb(73, 135, 241);
+}

@@ -18,13 +18,14 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
     "googleapis": "^73.0.0",
+    "joi": "^17.7.0",
+    "joi-password-complexity": "^5.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.8",
     "node-fetch": "^2.6.1",
     "nodemailer": "^6.6.0",
+    "nodemon": "^2.0.7",
     "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.3.0",
-    "nodemon": "^2.0.7"
-  },
-  "devDependencies": {}
+    "redux-thunk": "^2.3.0"
+  }
 }
