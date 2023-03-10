@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import "./Instructor.css";
 const Instructor = () => {
     return (
-        <div className='instructor'>
+        <div className='instructor border-t-2 border-[#ffffff]'>
             <div className='instructor_left'>
                 <Link to="/instructorPortal/newBook/id">
                     New Book +

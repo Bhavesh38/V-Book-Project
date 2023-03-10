@@ -122,7 +122,7 @@ const Navbar = ({ match, history }) => {
 	};
 	return (
 		<>
-			<nav className="navbar" style={{ paddingTop: "1%" }}>
+			<nav className="navbar  items-center" style={{ paddingTop: "1%" }}>
 				<div className="burger" onClick={Activateburger}>
 					<div className="line1"></div>
 					<div className="line2"></div>
@@ -134,7 +134,7 @@ const Navbar = ({ match, history }) => {
 					</Link>
 				</div>
 				{showicons && (
-					<div className="Phoneonright">
+					<div className="Phoneonright items-center">
 						{showsearch ? (
 							<span onClick={() => setshowsearch(!showsearch)}>AiOutlineClose</span>
 						) : (
@@ -166,8 +166,8 @@ const Navbar = ({ match, history }) => {
 					/>
 				</div>
 				{!showicons && (
-					<div classname="onright">
-						<ol>
+					<div classname="onright ">
+						<ol className="">
 							<Link to="/instructorPortal">
 								<Button disabled={isLogged} className="Navbarbtns" id="Teacherbtn">
 									Instructor Portal
@@ -195,8 +195,7 @@ const Navbar = ({ match, history }) => {
 									Go to Classroom
 								</Button>
 							</Link>
-						</ol>
-						{isLogged ? (
+							{isLogged ? (
 							userLink()
 						) : (
 							<button className="Btn" id="SignInbtn">
@@ -207,10 +206,9 @@ const Navbar = ({ match, history }) => {
 								</Link>
 							</button>
 						)}
-					</div>
-				)}
-			</nav>
-			{showicons && (
+
+
+{showicons && (
 				<Drawer title="VBook& V-Classroom" placement={"left"} closable={true} onClose={onClose} visible={visbile} key={"left"}>
 					<div className={isLogged ? "" : "onRightphone"}>
 						<Link to="/register">
@@ -236,6 +234,12 @@ const Navbar = ({ match, history }) => {
 					</div>
 				</Drawer>
 			)}
+						</ol>
+						
+					</div>
+				)}
+			</nav>
+			
 		</>
 	);
 };
