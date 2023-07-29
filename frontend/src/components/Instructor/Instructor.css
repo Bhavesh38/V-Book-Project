@@ -10,7 +10,7 @@
   color: rgb(30, 163, 208);
   font-weight: 700;
   font-style: 1.2rem;
-  border-bottom: 1px solid #189fd0;
+  /* border-bottom: 1px solid #189fd0; */
   padding: 6px;
   cursor: pointer;
   background-color: white;
@@ -18,7 +18,7 @@
 .instructor_left > a:hover {
   color: rgb(255, 255, 255);
   background-color: #189fd0;
-  border-bottom: 1px solid #fbfbfb;
+  /* border-bottom: 1px solid #fbfbfb; */
 }
 .instructor_right > img {
   width: 80vw;

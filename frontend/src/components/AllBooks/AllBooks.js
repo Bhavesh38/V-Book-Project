@@ -61,7 +61,6 @@ const AllBooks = () => {
 					</h1>
 					<span>View All</span>
 				</div>
-
 				<DynamicCard dynamicCardData={dynamicCardData?.Class_12_Physics} />
 			</div>
 			<div className='allBooks_cards'>
@@ -71,7 +70,6 @@ const AllBooks = () => {
 					</h1>
 					<span>View All</span>
 				</div>
-
 				<DynamicCard dynamicCardData={dynamicCardData?.Class_12_Maths} />
 			</div>
 		</div>
