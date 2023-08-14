@@ -32,6 +32,14 @@ const topicSchema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	audio:{
+		type:String,
+		required:true
+	},
+	video:{
+		type:String,
+		require: true
+	},
 	objective: {
 		type: String,
 		required: true,
