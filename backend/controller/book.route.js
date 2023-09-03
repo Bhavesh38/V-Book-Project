@@ -9,7 +9,7 @@ router.get("/", async (req, res, next) => {
 	}
 });
 
-router.get("/add" , async (req,res) => {
+router.post("/add" , async (req,res) => {
 	try{
 		const bookdetails = req.body 
 		const response = bookRepository.addBook(bookdetails)
